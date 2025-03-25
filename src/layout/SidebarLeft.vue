@@ -15,7 +15,7 @@
                 <li><a href="sales-dashboard.html">Sales Dashboard</a></li>
               </ul>
             </li>
-            <li class="submenu">
+            <!-- <li class="submenu">
               <a href="javascript:void(0);"><i
                   data-feather="smartphone"></i><span>Application</span><span
                   class="menu-arrow"></span></a>
@@ -37,7 +37,7 @@
                 <li><a href="social-feed.html">Social Feed</a></li>
                 <li><a href="kanban-view.html">Kanban</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li class="submenu-open">
@@ -46,15 +46,19 @@
             <li><a href="product-list.html"><i data-feather="box"></i><span>Products</span></a></li>
             <li><a href="add-product.html"><i data-feather="plus-square"></i><span>Create
                   Product</span></a></li>
-            <li><a href="expired-products.html"><i data-feather="codesandbox"></i><span>Expired
+
+            <!-- <li><a href="expired-products.html"><i data-feather="codesandbox"></i><span>Expired
                   Products</span></a></li>
             <li><a href="low-stocks.html"><i data-feather="trending-down"></i><span>Low
-                  Stocks</span></a></li>
+                  Stocks</span></a></li> -->
+                  
             <li><a href="category-list.html"><i data-feather="codepen"></i><span>Category</span></a>
-            </li>
-            <li><a href="sub-categories.html"><i data-feather="speaker"></i><span>Sub
-                  Category</span></a></li>
-            <li><a href="brand-list.html"><i data-feather="tag"></i><span>Brands</span></a></li>
+            </li> 
+
+            <!-- <li><a href="sub-categories.html"><i data-feather="speaker"></i><span>Sub
+                  Category</span></a></li> -->
+
+            <!-- <li><a href="brand-list.html"><i data-feather="tag"></i><span>Brands</span></a></li>
             <li><a href="units.html"><i data-feather="speaker"></i><span>Units</span></a></li>
             <li><a href="varriant-attributes.html"><i data-feather="layers"></i><span>Variant
                   Attributes</span></a></li>
@@ -63,7 +67,7 @@
             <li><a href="barcode.html"><i data-feather="align-justify"></i><span>Print
                   Barcode</span></a></li>
             <li><a href="qrcode.html"><i data-feather="maximize"></i><span>Print QR Code</span></a>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li class="submenu-open">
@@ -71,45 +75,47 @@
           <ul>
             <li><a href="manage-stocks.html"><i data-feather="package"></i><span>Manage
                   Stock</span></a></li>
-            <li><a href="stock-adjustment.html"><i data-feather="clipboard"></i><span>Stock
+
+            <!-- <li><a href="stock-adjustment.html"><i data-feather="clipboard"></i><span>Stock
                   Adjustment</span></a></li>
             <li><a href="stock-transfer.html"><i data-feather="truck"></i><span>Stock
-                  Transfer</span></a></li>
+                  Transfer</span></a></li> -->
           </ul>
         </li>
         <li class="submenu-open">
-          <h6 class="submenu-hdr">Sales</h6>
+          <h6 class="submenu-hdr">Orders</h6>
           <ul>
-            <li><a href="sales-list.html"><i data-feather="shopping-cart"></i><span>Sales</span></a>
+            <li><a href="sales-list.html"><i data-feather="shopping-cart"></i><span>Orders</span></a>
             </li>
             <li><a href="invoice-report.html"><i
-                  data-feather="file-text"></i><span>Invoices</span></a></li>
-            <li><a href="sales-returns.html"><i data-feather="copy"></i><span>Sales
+                  data-feather="file-text"></i><span>Order Details</span></a></li>
+
+            <!-- <li><a href="sales-returns.html"><i data-feather="copy"></i><span>Sales
                   Return</span></a></li>
             <li><a href="quotation-list.html"><i data-feather="save"></i><span>Quotation</span></a>
             </li>
-            <li><a href="pos.html"><i data-feather="hard-drive"></i><span>POS</span></a></li>
+            <li><a href="pos.html"><i data-feather="hard-drive"></i><span>POS</span></a></li> -->
           </ul>
         </li>
-        <li class="submenu-open">
+        <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">Promo</h6>
           <ul>
             <li><a href="coupons.html"><i data-feather="shopping-cart"></i><span>Coupons</span></a>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="submenu-open">
           <h6 class="submenu-hdr">Purchases</h6>
           <ul>
             <li><a href="purchase-list.html"><i
                   data-feather="shopping-bag"></i><span>Purchases</span></a></li>
             <li><a href="purchase-order-report.html"><i data-feather="file-minus"></i><span>Purchase
-                  Order</span></a></li>
+                  Details</span></a></li>
             <li><a href="purchase-returns.html"><i data-feather="refresh-cw"></i><span>Purchase
                   Return</span></a></li>
           </ul>
         </li>
-        <li class="submenu-open">
+        <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">Finance & Accounts</h6>
           <ul>
             <li class="submenu">
@@ -122,18 +128,20 @@
               </ul>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="submenu-open">
           <h6 class="submenu-hdr">Peoples</h6>
           <ul>
-            <li><a href="customers.html"><i data-feather="user"></i><span>Customers</span></a></li>
-            <li><a href="suppliers.html"><i data-feather="users"></i><span>Suppliers</span></a></li>
-            <li><a href="store-list.html"><i data-feather="home"></i><span>Stores</span></a></li>
-            <li><a href="warehouse.html"><i data-feather="archive"></i><span>Warehouses</span></a>
+            <li>
+              <RouterLink to="customers"><i data-feather="user"></i><span>Customers</span></RouterLink>
             </li>
+            <li><a href="suppliers.html"><i data-feather="users"></i><span>Suppliers</span></a></li>
+            <!-- <li><a href="store-list.html"><i data-feather="home"></i><span>Stores</span></a></li>
+            <li><a href="warehouse.html"><i data-feather="archive"></i><span>Warehouses</span></a>
+            </li> -->
           </ul>
         </li>
-        <li class="submenu-open">
+        <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">HRM</h6>
           <ul>
             <li><a href="employees-grid.html"><i data-feather="user"></i><span>Employees</span></a>
@@ -174,17 +182,19 @@
               </ul>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="submenu-open">
           <h6 class="submenu-hdr">Reports</h6>
           <ul>
-            <li><a href="sales-report.html"><i data-feather="bar-chart-2"></i><span>Sales
+            <li><a href="sales-report.html"><i data-feather="bar-chart-2"></i><span>Orders
                   Report</span></a></li>
             <li><a href="purchase-report.html"><i data-feather="pie-chart"></i><span>Purchase
                   report</span></a></li>
-            <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Inventory
+            <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Stocks
                   Report</span></a></li>
-            <li><a href="invoice-report.html"><i data-feather="file"></i><span>Invoice
+
+
+            <!-- <li><a href="invoice-report.html"><i data-feather="file"></i><span>Invoice
                   Report</span></a></li>
             <li><a href="supplier-report.html"><i data-feather="user-check"></i><span>Supplier
                   Report</span></a></li>
@@ -197,7 +207,7 @@
             <li><a href="tax-reports.html"><i data-feather="database"></i><span>Tax
                   Report</span></a></li>
             <li><a href="profit-and-loss.html"><i data-feather="pie-chart"></i><span>Profit &
-                  Loss</span></a></li>
+                  Loss</span></a></li> -->
           </ul>
         </li>
         <li class="submenu-open">
@@ -221,51 +231,51 @@
               <ul>
                 <li class="submenu submenu-two"><a href="javascript:void(0);">Login<span
                       class="menu-arrow inside-submenu"></span></a>
-                  <ul>
+                  <!-- <ul>
                     <li><a href="signin.html">Cover</a></li>
                     <li><a href="signin-2.html">Illustration</a></li>
                     <li><a href="signin-3.html">Basic</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="submenu submenu-two"><a href="javascript:void(0);">Register<span
                       class="menu-arrow inside-submenu"></span></a>
-                  <ul>
+                  <!-- <ul>
                     <li><a href="register.html">Cover</a></li>
                     <li><a href="register-2.html">Illustration</a></li>
                     <li><a href="register-3.html">Basic</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="submenu submenu-two"><a href="javascript:void(0);">Forgot
                     Password<span class="menu-arrow inside-submenu"></span></a>
-                  <ul>
+                  <!-- <ul>
                     <li><a href="forgot-password.html">Cover</a></li>
                     <li><a href="forgot-password-2.html">Illustration</a></li>
                     <li><a href="forgot-password-3.html">Basic</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="submenu submenu-two"><a href="javascript:void(0);">Reset
                     Password<span class="menu-arrow inside-submenu"></span></a>
-                  <ul>
+                  <!-- <ul>
                     <li><a href="reset-password.html">Cover</a></li>
                     <li><a href="reset-password-2.html">Illustration</a></li>
                     <li><a href="reset-password-3.html">Basic</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="submenu submenu-two"><a href="javascript:void(0);">Email
                     Verification<span class="menu-arrow inside-submenu"></span></a>
-                  <ul>
+                  <!-- <ul>
                     <li><a href="email-verification.html">Cover</a></li>
                     <li><a href="email-verification-2.html">Illustration</a></li>
                     <li><a href="email-verification-3.html">Basic</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="submenu submenu-two"><a href="javascript:void(0);">2 Step
                     Verification<span class="menu-arrow inside-submenu"></span></a>
-                  <ul>
+                  <!-- <ul>
                     <li><a href="two-step-verification.html">Cover</a></li>
                     <li><a href="two-step-verification-2.html">Illustration</a></li>
                     <li><a href="two-step-verification-3.html">Basic</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li><a href="lock-screen.html">Lock Screen</a></li>
               </ul>
@@ -372,7 +382,7 @@
             </li>
           </ul>
         </li>
-        <li class="submenu-open">
+        <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">UI Interface</h6>
           <ul>
             <li class="submenu">
@@ -516,7 +526,7 @@
               </ul>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="submenu-open">
           <h6 class="submenu-hdr">Help</h6>
           <ul>
