@@ -4,7 +4,7 @@
         <div class="card">
           <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h3 class="mb-0">Manage Customers</h3>
-            <RouterLink to="/createCustomer" class="btn btn-dark">Add New Customers</RouterLink>
+            <RouterLink to="/customers/create" class="btn btn-dark">Add New Customers</RouterLink>
           </div>
   
           <div class="card-body">
@@ -30,8 +30,8 @@
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.address }}</td>
                     <td class="text-center">
-                      <RouterLink :to="`/edit/${customer.id}`" class="btn btn-sm btn-primary me-2">Edit</RouterLink>
-                      <button class="btn btn-sm btn-danger" @click="deleteCustomer(customer.id)">Delete</button>
+                      <RouterLink :to="`/customers/edit/${customer.id}`" class="btn btn-sm btn-primary me-2">Edit</RouterLink>
+                      <a class="btn btn-sm btn-danger" @click="deleteCustomer(customer.id)">Delete</a>
                     </td>
                   </tr>
                 </tbody>
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-  </template>
+</template>
   
 
 
@@ -68,6 +68,7 @@ const fetchCustomers= ()=>{
         
     })
 }
+
 const deleteCustomer = (id)=>{
     api.delete(`/customers/${id}`) 
     .then(res=>{
@@ -89,6 +90,6 @@ const deleteCustomer = (id)=>{
 
 
 
-<style>
+<style scoped>
 
 </style>
