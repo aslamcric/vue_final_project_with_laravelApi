@@ -4,6 +4,9 @@ import ManageCustomer from '@/pages/customers/ManageCustomer.vue';
 import UpdateCustomer from '@/pages/customers/UpdateCustomer.vue';
 import Dashboard from '@/pages/Dashboard.vue';
 import NotFound from '@/pages/NotFound.vue';
+import CreateSupplier from '@/pages/suppliers/CreateSupplier.vue';
+import ManageSupplier from '@/pages/suppliers/ManageSupplier.vue';
+import UpdateSupplier from '@/pages/suppliers/UpdateSupplier.vue';
 
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -14,6 +17,10 @@ const routes = [
   { path: '/customers', component: ManageCustomer },
   { path: '/customers/create', component: CreateCustomer },
   { path: '/customers/edit/:id', component: UpdateCustomer },
+
+  { path: '/suppliers', component: ManageSupplier },  
+  { path: '/suppliers/create', component: CreateSupplier },
+  { path: '/suppliers/edit/:id', component: UpdateSupplier },
 
 
   { path: '/about', component: About },

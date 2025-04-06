@@ -135,7 +135,8 @@
             <li>
               <RouterLink to="customers"><i data-feather="user"></i><span>Customers</span></RouterLink>
             </li>
-            <li><a href="suppliers.html"><i data-feather="users"></i><span>Suppliers</span></a></li>
+            <li>
+              <RouterLink to="suppliers"><i data-feather="users"></i><span>Suppliers</span></RouterLink></li>
             <!-- <li><a href="store-list.html"><i data-feather="home"></i><span>Stores</span></a></li>
             <li><a href="warehouse.html"><i data-feather="archive"></i><span>Warehouses</span></a>
             </li> -->
