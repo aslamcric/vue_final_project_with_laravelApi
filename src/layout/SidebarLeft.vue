@@ -43,7 +43,7 @@
         <li class="submenu-open">
           <h6 class="submenu-hdr">Inventory</h6>
           <ul>
-            <li><a href="product-list.html"><i data-feather="box"></i><span>Products</span></a></li>
+            <li><RouterLink to="products"><i data-feather="box"></i><span>Products</span></RouterLink></li>
             <li><a href="add-product.html"><i data-feather="plus-square"></i><span>Create
                   Product</span></a></li>
 
