@@ -29,9 +29,16 @@
                   <td>{{ supplier.phone }}</td>
                   <td>{{ supplier.email }}</td>
                   <td>{{ supplier.address }}</td>
-                  <td class="text-center">
-                    <RouterLink :to="`/suppliers/edit/${supplier.id}`" class="btn btn-sm btn-primary me-2">Edit</RouterLink>
-                    <a class="btn btn-sm btn-danger" @click="deleteSupplier(supplier.id)">Delete</a>
+                  <td class="text-center btn btn-group">
+                    <RouterLink :to="`/suppliers/show/${supplier.id}`" class="btn btn-sm btn-primary me-2">
+                      <i class="fas fa-eye"></i>
+                    </RouterLink>
+                    <RouterLink :to="`/suppliers/edit/${supplier.id}`" class="btn btn-sm btn-primary me-2">
+                      <i class="fas fa-edit"></i>
+                    </RouterLink>
+                    <a class="btn btn-sm btn-danger" @click="deleteSupplier(supplier.id)">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -43,44 +50,42 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import api from '@/Api';
 import { onMounted, ref } from 'vue';
 
-  const suppliers = ref([])
-  onMounted(()=>{
-      fetchSuppliers();
-  })
+const suppliers = ref([])
+onMounted(() => {
+  fetchSuppliers();
+})
 
-  const fetchSuppliers = ()=>{
-      api.get("/suppliers")
-      .then(res=>{
+const fetchSuppliers = () => {
+  api.get("/suppliers")
+    .then(res => {
       console.log(res.data.suppliers);
-      suppliers.value = res.data.suppliers        
-  })
-  .catch(err=>{
+      suppliers.value = res.data.suppliers
+    })
+    .catch(err => {
       console.log(err);
-      
-  })
-  }
+
+    })
+}
 
 
-  const deleteSupplier = (id)=>{
-  api.delete(`/suppliers/${id}`) 
-  .then(res=>{
+const deleteSupplier = (id) => {
+  api.delete(`/suppliers/${id}`)
+    .then(res => {
       console.log(res);
-      if(res.data.suppliers){
-          fetchSuppliers()
-      }        
-  })
-  .catch(err => {
+      if (res.data.suppliers) {
+        fetchSuppliers()
+      }
+    })
+    .catch(err => {
       console.log(err);
-      
-  })
+
+    })
 }
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

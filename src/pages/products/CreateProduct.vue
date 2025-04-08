@@ -11,60 +11,32 @@
             <div class="app-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input
-                  v-model="productData.name"
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Enter product name"
-                />
+                <input v-model="productData.name" type="text" class="form-control" id="name"
+                  placeholder="Enter product name" />
               </div>
 
               <div class="mb-3">
                 <label for="photo" class="form-label">Photo</label>
-                <input
-                  @change="onFileChange"
-                  type="file"
-                  class="form-control"
-                  id="photo"
-                />
+                <input @change="onFileChange" type="file" class="form-control" id="photo" />
               </div>
 
               <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input
-                  v-model="productData.price"
-                  type="number"
-                  class="form-control"
-                  id="price"
-                  placeholder="Enter price"
-                />
+                <input v-model="productData.price" type="number" class="form-control" id="price"
+                  placeholder="Enter price" />
               </div>
 
               <div class="mb-3">
                 <label for="offer_price" class="form-label">Offer Price</label>
-                <input
-                  v-model="productData.offer_price"
-                  type="number"
-                  class="form-control"
-                  id="offer_price"
-                  placeholder="Enter offer price"
-                />
+                <input v-model="productData.offer_price" type="number" class="form-control" id="offer_price"
+                  placeholder="Enter offer price" />
               </div>
 
               <div class="mb-3">
                 <label for="category_id" class="form-label">Category</label>
-                <select
-                  v-model="productData.category_id"
-                  class="form-control"
-                  id="category_id"
-                >
+                <select v-model="productData.category_id" class="form-control" id="category_id">
                   <option value="">Select Category</option>
-                  <option
-                    v-for="category in categories"
-                    :key="category.id"
-                    :value="category.id"
-                  >
+                  <option v-for="category in categories" :key="category.id" :value="category.id">
                     {{ category.name }}
                   </option>
                 </select>
@@ -72,57 +44,30 @@
 
               <div class="mb-3">
                 <label for="barcode" class="form-label">Barcode</label>
-                <input
-                  v-model="productData.barcode"
-                  type="text"
-                  class="form-control"
-                  id="barcode"
-                  placeholder="Enter barcode"
-                />
+                <input v-model="productData.barcode" type="text" class="form-control" id="barcode"
+                  placeholder="Enter barcode" />
               </div>
 
               <div class="mb-3">
                 <label for="sku" class="form-label">SKU</label>
-                <input
-                  v-model="productData.sku"
-                  type="text"
-                  class="form-control"
-                  id="sku"
-                  placeholder="Enter SKU"
-                />
+                <input v-model="productData.sku" type="text" class="form-control" id="sku" placeholder="Enter SKU" />
               </div>
 
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea
-                  v-model="productData.description"
-                  class="form-control"
-                  id="description"
-                  rows="3"
-                  placeholder="Enter product description"
-                ></textarea>
+                <textarea v-model="productData.description" class="form-control" id="description" rows="3"
+                  placeholder="Enter product description"></textarea>
               </div>
 
               <div class="mb-3">
                 <label for="weight" class="form-label">Weight</label>
-                <input
-                  v-model="productData.weight"
-                  type="text"
-                  class="form-control"
-                  id="weight"
-                  placeholder="Enter weight"
-                />
+                <input v-model="productData.weight" type="text" class="form-control" id="weight"
+                  placeholder="Enter weight" />
               </div>
 
               <div class="mb-3">
                 <label for="size" class="form-label">Size</label>
-                <input
-                  v-model="productData.size"
-                  type="text"
-                  class="form-control"
-                  id="size"
-                  placeholder="Enter size"
-                />
+                <input v-model="productData.size" type="text" class="form-control" id="size" placeholder="Enter size" />
               </div>
 
               <div>
@@ -149,8 +94,7 @@ onMounted(() => {
 });
 
 const fetchCategories = () => {
-  api
-    .get("/categories")
+  api.get("/categories")
     .then((result) => {
       categories.value = result.data.categories;
     })
@@ -180,20 +124,20 @@ const onFileChange = (e) => {
 };
 
 const createProduct = () => {
+
   const formData = new FormData();
   for (const key in productData) {
     formData.append(key, productData[key]);
   }
 
-  api
-    .post("/products", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
+  api.post("/products", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  })
     .then((result) => {
       console.log(result);
-      // router.push({ path: "/products" });
+      router.push({ path: "/products" });
     })
     .catch((err) => {
       console.log(err.response?.data || err);

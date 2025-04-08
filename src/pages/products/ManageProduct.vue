@@ -4,21 +4,14 @@
       <div class="card">
         <!-- Header -->
         <div
-          class="card-header bg-primary text-white d-flex justify-content-between align-items-center flex-wrap gap-2"
-        >
+          class="card-header bg-primary text-white d-flex justify-content-between align-items-center flex-wrap gap-2">
           <h3 class="mb-0">Manage Products</h3>
 
           <!-- Search bar -->
           <form class="d-flex align-items-center" @submit.prevent>
             <div class="input-group">
-              <input
-                v-model="search"
-                @input="fetchProducts"
-                type="text"
-                class="form-control"
-                placeholder="Search..."
-                aria-label="Search"
-              />
+              <input v-model="search" @input="fetchProducts" type="text" class="form-control" placeholder="Search..."
+                aria-label="Search" />
               <span class="input-group-text bg-white border-start-0">
                 <i class="ti ti-search text-dark"></i>
               </span>
@@ -63,13 +56,8 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>
-                  <img
-                    :src="`${imgUrl}/${product.photo}`"
-                    alt="Product Photo"
-                    width="80"
-                    height="80"
-                    class="img-thumbnail"
-                  />
+                  <img :src="`${imgUrl}/${product.photo}`" alt="Product Photo" width="80" height="80"
+                    class="img-thumbnail" />
                 </td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.offer_price }}</td>
@@ -79,20 +67,21 @@
                 <td>{{ product.description }}</td>
                 <td>{{ product.weight }}</td>
                 <td>{{ product.size }}</td>
-                <td class="text-center">
-                  <RouterLink
-                    :to="`/products/edit/${product.id}`"
-                    class="btn btn-sm btn-primary me-2"
-                  >
-                    Edit
+
+                <td class="text-center btn btn-group">
+                  <RouterLink :to="`/products/show/${product.id}`" class="btn btn-sm btn-primary me-2">
+                    <i class="fas fa-eye"></i>
                   </RouterLink>
-                  <button
-                    class="btn btn-sm btn-danger"
-                    @click="deleteProduct(product.id)"
-                  >
-                    Delete
+
+                  <RouterLink :to="`/products/edit/${product.id}`" class="btn btn-sm btn-success me-2">
+                    <i class="fas fa-edit"></i>
+                  </RouterLink>
+
+                  <button class="btn btn-sm btn-danger" @click="deleteProduct(product.id)">
+                    <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
+                
               </tr>
             </tbody>
           </table>
@@ -102,17 +91,9 @@
         <div class="card-footer d-flex justify-content-end">
           <nav>
             <ul class="pagination mb-0">
-              <li
-                v-for="page in products.links"
-                :key="page.label"
-                class="page-item"
-                :class="{ active: page.active, disabled: !page.url }"
-              >
-                <button
-                  class="page-link"
-                  :disabled="!page.url"
-                  @click="page.url && fetchProducts(page.url)"
-                >
+              <li v-for="page in products.links" :key="page.label" class="page-item"
+                :class="{ active: page.active, disabled: !page.url }">
+                <button class="page-link" :disabled="!page.url" @click="page.url && fetchProducts(page.url)">
                   {{ formatPageLabel(page.label) }}
                 </button>
               </li>
@@ -156,16 +137,12 @@ const fetchProducts = (url = "/products") => {
     });
 };
 
-
-
 // const debouncedFetchUsers = debounce(fetchUsers, 300);
 const formatPageLabel = (label) => {
   if (label === "&laquo; Previous") return "Previous";
   if (label === "Next &raquo;") return "Next";
   return label;
 };
-
-
 
 const deleteProduct = (id) => {
   api

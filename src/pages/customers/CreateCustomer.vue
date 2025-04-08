@@ -13,46 +13,26 @@
             <div class="app-form">
               <div class="mb-3">
                 <label for="username" class="form-label">Name</label>
-                <input
-                  v-model="customerData.name"
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter Name"
-                  id="username"
-                />
+                <input v-model="customerData.name" type="text" class="form-control" placeholder="Enter Name"
+                  id="username" />
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input
-                  v-model="customerData.email"
-                  type="email"
-                  class="form-control"
-                  placeholder="Enter Email"
-                  id="email"
-                />
+                <input v-model="customerData.email" type="email" class="form-control" placeholder="Enter Email"
+                  id="email" />
               </div>
 
               <div class="mb-3">
                 <label for="phone" class="form-label">Phone</label>
-                <input
-                  v-model="customerData.phone"
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter Phone Number"
-                  id="phone"
-                />
+                <input v-model="customerData.phone" type="text" class="form-control" placeholder="Enter Phone Number"
+                  id="phone" />
               </div>
 
               <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
-                <textarea
-                  v-model="customerData.address"
-                  class="form-control"
-                  id="address"
-                  rows="3"
-                  placeholder="Enter Address"
-                ></textarea>
+                <textarea v-model="customerData.address" class="form-control" id="address" rows="3"
+                  placeholder="Enter Address"></textarea>
               </div>
 
               <div>
@@ -81,8 +61,7 @@ const customerData = reactive({
 });
 
 const submitData = () => {
-  api
-    .post("/customers", customerData)
+  api.post("/customers", customerData)
     .then((res) => {
       console.log(res);
       router.push({ path: "/customers" });
