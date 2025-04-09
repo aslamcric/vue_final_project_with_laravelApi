@@ -46,6 +46,8 @@ import { onMounted, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const { id } = useRoute().params;
+// console.log(id);
+
 const router = useRouter();
 
 const userData = reactive({
@@ -61,16 +63,17 @@ onMounted(() => {
 
 const fetchUser = () => {
   api.get(`/users/${id}`)
-    .then((result) => {
-      const user = result.data.user;
-      userData.id = user.id;
-      userData.name = user.name;
-      userData.email = user.email;
-      userData.password = user.password;
-    })
-    .catch((err) => {
-      console.log("Fetch error:", err);
-    });
+  .then((result) => {
+    const user = result.data.user;
+    
+    userData.id = user.id;
+    userData.name = user.name;
+    userData.email = user.email;
+    userData.password = user.password;
+  })
+  .catch((err) => {
+    console.log("Fetch error:", err);
+  });
 };
 
 const submitData = () => {

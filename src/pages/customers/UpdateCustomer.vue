@@ -45,13 +45,13 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import api from '@/Api';
 import { onMounted, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const { id } = useRoute().params;
-console.log(id);
+// console.log(id);
 
 const router = useRouter();
 
@@ -70,18 +70,18 @@ onMounted(() => {
 
 const fetchCustomer = () => {
   api.get(`/customers/${id}`)
-    .then((result) => {
-      console.log(result);
-      customerData.id = result.data.customer.id;
-      customerData.name = result.data.customer.name;
-      customerData.phone = result.data.customer.phone;
-      customerData.email = result.data.customer.email;
-      customerData.address = result.data.customer.address;
-      customerData.photo = result.data.customer.photo;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  .then((result) => {
+    console.log(result);
+    customerData.id = result.data.customer.id;
+    customerData.name = result.data.customer.name;
+    customerData.phone = result.data.customer.phone;
+    customerData.email = result.data.customer.email;
+    customerData.address = result.data.customer.address;
+    customerData.photo = result.data.customer.photo;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 };
 
 const submitData = () => {

@@ -1,4 +1,7 @@
 import About from "@/pages/About.vue";
+import CreateCategory from "@/pages/categories/CreateCategory.vue";
+import ManageCategory from "@/pages/categories/ManageCategory.vue";
+import UpdateCategory from "@/pages/categories/UpdateCategory.vue";
 import CreateCustomer from "@/pages/customers/CreateCustomer.vue";
 import ManageCustomer from "@/pages/customers/ManageCustomer.vue";
 import UpdateCustomer from "@/pages/customers/UpdateCustomer.vue";
@@ -39,8 +42,11 @@ const routes = [
   { path: "/users/create", component: CreateUser },
   { path: "/users/edit/:id", component: UpdateUser },
 
+  // Categoriex
+  { path: "/categories", component: ManageCategory },
+  { path: "/categories/create", component: CreateCategory },
+  { path: "/categories/edit/:id", component: UpdateCategory },
 
-  
   { path: "/about", component: About },
   { path: "/:pathMatch(.*)*", component: NotFound },
 ];
