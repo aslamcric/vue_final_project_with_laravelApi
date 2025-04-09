@@ -10,7 +10,7 @@
           <!-- Search bar -->
           <form class="d-flex align-items-center" @submit.prevent>
             <div class="input-group">
-              <input v-model="search" @input="fetchProducts" type="text" class="form-control" placeholder="Search..."
+              <input v-model="search" @input="fetchProducts" type="text" class="form-control" placeholder="Search Product..."
                 aria-label="Search" />
               <span class="input-group-text bg-white border-start-0">
                 <i class="ti ti-search text-dark"></i>

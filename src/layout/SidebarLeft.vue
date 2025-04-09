@@ -1,21 +1,20 @@
 <template>
   <div class="sidebar" id="sidebar">
-  <div class="sidebar-inner slimscroll">
-    <div id="sidebar-menu" class="sidebar-menu">
-      <ul>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Main</h6>
-          <ul>
-            <li class="submenu">
-              <a href="javascript:void(0);" class="subdrop active"><i
-                  data-feather="grid"></i><span>Dashboard</span><span
-                  class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="index.html" class="active">Admin Dashboard</a></li>
-                <li><a href="sales-dashboard.html">Sales Dashboard</a></li>
-              </ul>
-            </li>
-            <!-- <li class="submenu">
+    <div class="sidebar-inner slimscroll">
+      <div id="sidebar-menu" class="sidebar-menu">
+        <ul>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Main</h6>
+            <ul>
+              <li class="submenu">
+                <a href="javascript:void(0);" class="subdrop active"><i
+                    data-feather="grid"></i><span>Dashboard</span><span class="menu-arrow"></span></a>
+                <ul>
+                  <li><a href="index.html" class="active">Admin Dashboard</a></li>
+                  <li><a href="sales-dashboard.html">Sales Dashboard</a></li>
+                </ul>
+              </li>
+              <!-- <li class="submenu">
               <a href="javascript:void(0);"><i
                   data-feather="smartphone"></i><span>Application</span><span
                   class="menu-arrow"></span></a>
@@ -38,27 +37,30 @@
                 <li><a href="kanban-view.html">Kanban</a></li>
               </ul>
             </li> -->
-          </ul>
-        </li>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Inventory</h6>
-          <ul>
-            <li><RouterLink to="products"><i data-feather="box"></i><span>Products</span></RouterLink></li>
-            <li><a href="add-product.html"><i data-feather="plus-square"></i><span>Create
-                  Product</span></a></li>
+            </ul>
+          </li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Inventory</h6>
+            <ul>
+              <li>
+                <RouterLink to="products"><i data-feather="box"></i><span>Products</span></RouterLink>
+              </li>
+              <!-- <li><a href="add-product.html"><i data-feather="plus-square"></i><span>Create
+                    Product</span></a></li>
 
-            <!-- <li><a href="expired-products.html"><i data-feather="codesandbox"></i><span>Expired
+              <li><a href="expired-products.html"><i data-feather="codesandbox"></i><span>Expired
                   Products</span></a></li>
             <li><a href="low-stocks.html"><i data-feather="trending-down"></i><span>Low
                   Stocks</span></a></li> -->
-                  
-            <li><a href="category-list.html"><i data-feather="codepen"></i><span>Category</span></a>
-            </li> 
 
-            <!-- <li><a href="sub-categories.html"><i data-feather="speaker"></i><span>Sub
+              <li>
+                <RouterLink to="categories"><i data-feather="codepen"></i><span>Category</span></RouterLink>
+              </li>
+
+              <!-- <li><a href="sub-categories.html"><i data-feather="speaker"></i><span>Sub
                   Category</span></a></li> -->
 
-            <!-- <li><a href="brand-list.html"><i data-feather="tag"></i><span>Brands</span></a></li>
+              <!-- <li><a href="brand-list.html"><i data-feather="tag"></i><span>Brands</span></a></li>
             <li><a href="units.html"><i data-feather="speaker"></i><span>Units</span></a></li>
             <li><a href="varriant-attributes.html"><i data-feather="layers"></i><span>Variant
                   Attributes</span></a></li>
@@ -68,54 +70,52 @@
                   Barcode</span></a></li>
             <li><a href="qrcode.html"><i data-feather="maximize"></i><span>Print QR Code</span></a>
             </li> -->
-          </ul>
-        </li>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Stock</h6>
-          <ul>
-            <li><a href="manage-stocks.html"><i data-feather="package"></i><span>Manage
-                  Stock</span></a></li>
+            </ul>
+          </li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Stock</h6>
+            <ul>
+              <li><a href="manage-stocks.html"><i data-feather="package"></i><span>Manage
+                    Stock</span></a></li>
 
-            <!-- <li><a href="stock-adjustment.html"><i data-feather="clipboard"></i><span>Stock
+              <!-- <li><a href="stock-adjustment.html"><i data-feather="clipboard"></i><span>Stock
                   Adjustment</span></a></li>
             <li><a href="stock-transfer.html"><i data-feather="truck"></i><span>Stock
                   Transfer</span></a></li> -->
-          </ul>
-        </li>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Orders</h6>
-          <ul>
-            <li><a href="sales-list.html"><i data-feather="shopping-cart"></i><span>Orders</span></a>
-            </li>
-            <li><a href="invoice-report.html"><i
-                  data-feather="file-text"></i><span>Order Details</span></a></li>
+            </ul>
+          </li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Orders</h6>
+            <ul>
+              <li><a href="sales-list.html"><i data-feather="shopping-cart"></i><span>Orders</span></a>
+              </li>
+              <li><a href="invoice-report.html"><i data-feather="file-text"></i><span>Order Details</span></a></li>
 
-            <!-- <li><a href="sales-returns.html"><i data-feather="copy"></i><span>Sales
+              <!-- <li><a href="sales-returns.html"><i data-feather="copy"></i><span>Sales
                   Return</span></a></li>
             <li><a href="quotation-list.html"><i data-feather="save"></i><span>Quotation</span></a>
             </li>
             <li><a href="pos.html"><i data-feather="hard-drive"></i><span>POS</span></a></li> -->
-          </ul>
-        </li>
-        <!-- <li class="submenu-open">
+            </ul>
+          </li>
+          <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">Promo</h6>
           <ul>
             <li><a href="coupons.html"><i data-feather="shopping-cart"></i><span>Coupons</span></a>
             </li>
           </ul>
         </li> -->
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Purchases</h6>
-          <ul>
-            <li><a href="purchase-list.html"><i
-                  data-feather="shopping-bag"></i><span>Purchases</span></a></li>
-            <li><a href="purchase-order-report.html"><i data-feather="file-minus"></i><span>Purchase
-                  Details</span></a></li>
-            <li><a href="purchase-returns.html"><i data-feather="refresh-cw"></i><span>Purchase
-                  Return</span></a></li>
-          </ul>
-        </li>
-        <!-- <li class="submenu-open">
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Purchases</h6>
+            <ul>
+              <li><a href="purchase-list.html"><i data-feather="shopping-bag"></i><span>Purchases</span></a></li>
+              <li><a href="purchase-order-report.html"><i data-feather="file-minus"></i><span>Purchase
+                    Details</span></a></li>
+              <li><a href="purchase-returns.html"><i data-feather="refresh-cw"></i><span>Purchase
+                    Return</span></a></li>
+            </ul>
+          </li>
+          <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">Finance & Accounts</h6>
           <ul>
             <li class="submenu">
@@ -129,20 +129,21 @@
             </li>
           </ul>
         </li> -->
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Peoples</h6>
-          <ul>
-            <li>
-              <RouterLink to="customers"><i data-feather="user"></i><span>Customers</span></RouterLink>
-            </li>
-            <li>
-              <RouterLink to="suppliers"><i data-feather="users"></i><span>Suppliers</span></RouterLink></li>
-            <!-- <li><a href="store-list.html"><i data-feather="home"></i><span>Stores</span></a></li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Peoples</h6>
+            <ul>
+              <li>
+                <RouterLink to="customers"><i data-feather="user"></i><span>Customers</span></RouterLink>
+              </li>
+              <li>
+                <RouterLink to="suppliers"><i data-feather="users"></i><span>Suppliers</span></RouterLink>
+              </li>
+              <!-- <li><a href="store-list.html"><i data-feather="home"></i><span>Stores</span></a></li>
             <li><a href="warehouse.html"><i data-feather="archive"></i><span>Warehouses</span></a>
             </li> -->
-          </ul>
-        </li>
-        <!-- <li class="submenu-open">
+            </ul>
+          </li>
+          <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">HRM</h6>
           <ul>
             <li><a href="employees-grid.html"><i data-feather="user"></i><span>Employees</span></a>
@@ -184,18 +185,18 @@
             </li>
           </ul>
         </li> -->
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Reports</h6>
-          <ul>
-            <li><a href="sales-report.html"><i data-feather="bar-chart-2"></i><span>Orders
-                  Report</span></a></li>
-            <li><a href="purchase-report.html"><i data-feather="pie-chart"></i><span>Purchase
-                  report</span></a></li>
-            <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Stocks
-                  Report</span></a></li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Reports</h6>
+            <ul>
+              <li><a href="sales-report.html"><i data-feather="bar-chart-2"></i><span>Orders
+                    Report</span></a></li>
+              <li><a href="purchase-report.html"><i data-feather="pie-chart"></i><span>Purchase
+                    report</span></a></li>
+              <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Stocks
+                    Report</span></a></li>
 
 
-            <!-- <li><a href="invoice-report.html"><i data-feather="file"></i><span>Invoice
+              <!-- <li><a href="invoice-report.html"><i data-feather="file"></i><span>Invoice
                   Report</span></a></li>
             <li><a href="supplier-report.html"><i data-feather="user-check"></i><span>Supplier
                   Report</span></a></li>
@@ -209,181 +210,182 @@
                   Report</span></a></li>
             <li><a href="profit-and-loss.html"><i data-feather="pie-chart"></i><span>Profit &
                   Loss</span></a></li> -->
-          </ul>
-        </li>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">User Management</h6>
-          <ul>
-            <li><RouterLink to="users"><i data-feather="user-check"></i><span>Users</span></RouterLink></li>
-            <li><a href="roles-permissions.html"><i data-feather="shield"></i><span>Roles &
-                  Permissions</span></a></li>
-            <li><a href="delete-account.html"><i data-feather="lock"></i><span>Delete Account
-                  Request</span></a></li>
-          </ul>
-        </li>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Pages</h6>
-          <ul>
-            <li><a href="profile.html"><i data-feather="user"></i><span>Profile</span></a></li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i
-                  data-feather="shield"></i><span>Authentication</span><span
-                  class="menu-arrow"></span></a>
-              <ul>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">Login<span
-                      class="menu-arrow inside-submenu"></span></a>
-                  <!-- <ul>
+            </ul>
+          </li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">User Management</h6>
+            <ul>
+              <li>
+                <RouterLink to="users"><i data-feather="user-check"></i><span>Users</span></RouterLink>
+              </li>
+              <li><a href="roles-permissions.html"><i data-feather="shield"></i><span>Roles &
+                    Permissions</span></a></li>
+              <li><a href="delete-account.html"><i data-feather="lock"></i><span>Delete Account
+                    Request</span></a></li>
+            </ul>
+          </li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Pages</h6>
+            <ul>
+              <li><a href="profile.html"><i data-feather="user"></i><span>Profile</span></a></li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="shield"></i><span>Authentication</span><span
+                    class="menu-arrow"></span></a>
+                <ul>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">Login<span
+                        class="menu-arrow inside-submenu"></span></a>
+                    <!-- <ul>
                     <li><a href="signin.html">Cover</a></li>
                     <li><a href="signin-2.html">Illustration</a></li>
                     <li><a href="signin-3.html">Basic</a></li>
                   </ul> -->
-                </li>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">Register<span
-                      class="menu-arrow inside-submenu"></span></a>
-                  <!-- <ul>
+                  </li>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">Register<span
+                        class="menu-arrow inside-submenu"></span></a>
+                    <!-- <ul>
                     <li><a href="register.html">Cover</a></li>
                     <li><a href="register-2.html">Illustration</a></li>
                     <li><a href="register-3.html">Basic</a></li>
                   </ul> -->
-                </li>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">Forgot
-                    Password<span class="menu-arrow inside-submenu"></span></a>
-                  <!-- <ul>
+                  </li>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">Forgot
+                      Password<span class="menu-arrow inside-submenu"></span></a>
+                    <!-- <ul>
                     <li><a href="forgot-password.html">Cover</a></li>
                     <li><a href="forgot-password-2.html">Illustration</a></li>
                     <li><a href="forgot-password-3.html">Basic</a></li>
                   </ul> -->
-                </li>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">Reset
-                    Password<span class="menu-arrow inside-submenu"></span></a>
-                  <!-- <ul>
+                  </li>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">Reset
+                      Password<span class="menu-arrow inside-submenu"></span></a>
+                    <!-- <ul>
                     <li><a href="reset-password.html">Cover</a></li>
                     <li><a href="reset-password-2.html">Illustration</a></li>
                     <li><a href="reset-password-3.html">Basic</a></li>
                   </ul> -->
-                </li>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">Email
-                    Verification<span class="menu-arrow inside-submenu"></span></a>
-                  <!-- <ul>
+                  </li>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">Email
+                      Verification<span class="menu-arrow inside-submenu"></span></a>
+                    <!-- <ul>
                     <li><a href="email-verification.html">Cover</a></li>
                     <li><a href="email-verification-2.html">Illustration</a></li>
                     <li><a href="email-verification-3.html">Basic</a></li>
                   </ul> -->
-                </li>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">2 Step
-                    Verification<span class="menu-arrow inside-submenu"></span></a>
-                  <!-- <ul>
+                  </li>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">2 Step
+                      Verification<span class="menu-arrow inside-submenu"></span></a>
+                    <!-- <ul>
                     <li><a href="two-step-verification.html">Cover</a></li>
                     <li><a href="two-step-verification-2.html">Illustration</a></li>
                     <li><a href="two-step-verification-3.html">Basic</a></li>
                   </ul> -->
-                </li>
-                <li><a href="lock-screen.html">Lock Screen</a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="file-minus"></i><span>Error
-                  Pages</span><span class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="error-404.html">404 Error </a></li>
-                <li><a href="error-500.html">500 Error </a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="map"></i><span>Places</span><span
-                  class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="countries.html">Countries</a></li>
-                <li><a href="states.html">States</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="blank-page.html"><i data-feather="file"></i><span>Blank Page</span> </a>
-            </li>
-            <li>
-              <a href="coming-soon.html"><i data-feather="send"></i><span>Coming Soon</span> </a>
-            </li>
-            <li>
-              <a href="under-maintenance.html"><i data-feather="alert-triangle"></i><span>Under
-                  Maintenance</span> </a>
-            </li>
-          </ul>
-        </li>
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Settings</h6>
-          <ul>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="settings"></i><span>General
-                  Settings</span><span class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="general-settings.html">Profile</a></li>
-                <li><a href="security-settings.html">Security</a></li>
-                <li><a href="notification.html">Notifications</a></li>
-                <li><a href="connected-apps.html">Connected Apps</a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="globe"></i><span>Website
-                  Settings</span><span class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="system-settings.html">System Settings</a></li>
-                <li><a href="company-settings.html">Company Settings </a></li>
-                <li><a href="localization-settings.html">Localization</a></li>
-                <li><a href="prefixes.html">Prefixes</a></li>
-                <li><a href="preference.html">Preference</a></li>
-                <li><a href="appearance.html">Appearance</a></li>
-                <li><a href="social-authentication.html">Social Authentication</a></li>
-                <li><a href="language-settings.html">Language</a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="smartphone"></i>
-                <span>App Settings</span><span class="menu-arrow"></span>
-              </a>
-              <ul>
-                <li><a href="invoice-settings.html">Invoice</a></li>
-                <li><a href="printer-settings.html">Printer</a></li>
-                <li><a href="pos-settings.html">POS</a></li>
-                <li><a href="custom-fields.html">Custom Fields</a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="monitor"></i>
-                <span>System Settings</span><span class="menu-arrow"></span>
-              </a>
-              <ul>
-                <li><a href="email-settings.html">Email</a></li>
-                <li><a href="sms-gateway.html">SMS Gateways</a></li>
-                <li><a href="otp-settings.html">OTP</a></li>
-                <li><a href="gdpr-settings.html">GDPR Cookies</a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="dollar-sign"></i>
-                <span>Settings</span><span class="menu-arrow"></span>
-              </a>
-              <ul>
-                <li><a href="payment-gateway-settings.html">Payment Gateway</a></li>
-                <li><a href="bank-settings-grid.html">Bank Accounts</a></li>
-                <li><a href="tax-rates.html">Tax Rates</a></li>
-                <li><a href="currency-settings.html">Currencies</a></li>
-              </ul>
-            </li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="hexagon"></i>
-                <span>Other Settings</span><span class="menu-arrow"></span>
-              </a>
-              <ul>
-                <li><a href="storage-settings.html">Storage</a></li>
-                <li><a href="ban-ip-address.html">Ban IP Address</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="signin.html"><i data-feather="log-out"></i><span>Logout</span> </a>
-            </li>
-          </ul>
-        </li>
-        <!-- <li class="submenu-open">
+                  </li>
+                  <li><a href="lock-screen.html">Lock Screen</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="file-minus"></i><span>Error
+                    Pages</span><span class="menu-arrow"></span></a>
+                <ul>
+                  <li><a href="error-404.html">404 Error </a></li>
+                  <li><a href="error-500.html">500 Error </a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="map"></i><span>Places</span><span
+                    class="menu-arrow"></span></a>
+                <ul>
+                  <li><a href="countries.html">Countries</a></li>
+                  <li><a href="states.html">States</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="blank-page.html"><i data-feather="file"></i><span>Blank Page</span> </a>
+              </li>
+              <li>
+                <a href="coming-soon.html"><i data-feather="send"></i><span>Coming Soon</span> </a>
+              </li>
+              <li>
+                <a href="under-maintenance.html"><i data-feather="alert-triangle"></i><span>Under
+                    Maintenance</span> </a>
+              </li>
+            </ul>
+          </li>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Settings</h6>
+            <ul>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="settings"></i><span>General
+                    Settings</span><span class="menu-arrow"></span></a>
+                <ul>
+                  <li><a href="general-settings.html">Profile</a></li>
+                  <li><a href="security-settings.html">Security</a></li>
+                  <li><a href="notification.html">Notifications</a></li>
+                  <li><a href="connected-apps.html">Connected Apps</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="globe"></i><span>Website
+                    Settings</span><span class="menu-arrow"></span></a>
+                <ul>
+                  <li><a href="system-settings.html">System Settings</a></li>
+                  <li><a href="company-settings.html">Company Settings </a></li>
+                  <li><a href="localization-settings.html">Localization</a></li>
+                  <li><a href="prefixes.html">Prefixes</a></li>
+                  <li><a href="preference.html">Preference</a></li>
+                  <li><a href="appearance.html">Appearance</a></li>
+                  <li><a href="social-authentication.html">Social Authentication</a></li>
+                  <li><a href="language-settings.html">Language</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="smartphone"></i>
+                  <span>App Settings</span><span class="menu-arrow"></span>
+                </a>
+                <ul>
+                  <li><a href="invoice-settings.html">Invoice</a></li>
+                  <li><a href="printer-settings.html">Printer</a></li>
+                  <li><a href="pos-settings.html">POS</a></li>
+                  <li><a href="custom-fields.html">Custom Fields</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="monitor"></i>
+                  <span>System Settings</span><span class="menu-arrow"></span>
+                </a>
+                <ul>
+                  <li><a href="email-settings.html">Email</a></li>
+                  <li><a href="sms-gateway.html">SMS Gateways</a></li>
+                  <li><a href="otp-settings.html">OTP</a></li>
+                  <li><a href="gdpr-settings.html">GDPR Cookies</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="dollar-sign"></i>
+                  <span>Settings</span><span class="menu-arrow"></span>
+                </a>
+                <ul>
+                  <li><a href="payment-gateway-settings.html">Payment Gateway</a></li>
+                  <li><a href="bank-settings-grid.html">Bank Accounts</a></li>
+                  <li><a href="tax-rates.html">Tax Rates</a></li>
+                  <li><a href="currency-settings.html">Currencies</a></li>
+                </ul>
+              </li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="hexagon"></i>
+                  <span>Other Settings</span><span class="menu-arrow"></span>
+                </a>
+                <ul>
+                  <li><a href="storage-settings.html">Storage</a></li>
+                  <li><a href="ban-ip-address.html">Ban IP Address</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="signin.html"><i data-feather="log-out"></i><span>Logout</span> </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="submenu-open">
           <h6 class="submenu-hdr">UI Interface</h6>
           <ul>
             <li class="submenu">
@@ -528,40 +530,38 @@
             </li>
           </ul>
         </li> -->
-        <li class="submenu-open">
-          <h6 class="submenu-hdr">Help</h6>
-          <ul>
-            <li><a href="javascript:void(0);"><i
-                  data-feather="file-text"></i><span>Documentation</span></a></li>
-            <li><a href="javascript:void(0);"><i data-feather="lock"></i><span>Changelog
-                  v2.0.8</span></a></li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="file-minus"></i><span>Multi
-                  Level</span><span class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="javascript:void(0);">Level 1.1</a></li>
-                <li class="submenu submenu-two"><a href="javascript:void(0);">Level 1.2<span
-                      class="menu-arrow inside-submenu"></span></a>
-                  <ul>
-                    <li><a href="javascript:void(0);">Level 2.1</a></li>
-                    <li class="submenu submenu-two submenu-three"><a
-                        href="javascript:void(0);">Level 2.2<span
-                          class="menu-arrow inside-submenu inside-submenu-two"></span></a>
-                      <ul>
-                        <li><a href="javascript:void(0);">Level 3.1</a></li>
-                        <li><a href="javascript:void(0);">Level 3.2</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
+          <li class="submenu-open">
+            <h6 class="submenu-hdr">Help</h6>
+            <ul>
+              <li><a href="javascript:void(0);"><i data-feather="file-text"></i><span>Documentation</span></a></li>
+              <li><a href="javascript:void(0);"><i data-feather="lock"></i><span>Changelog
+                    v2.0.8</span></a></li>
+              <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="file-minus"></i><span>Multi
+                    Level</span><span class="menu-arrow"></span></a>
+                <ul>
+                  <li><a href="javascript:void(0);">Level 1.1</a></li>
+                  <li class="submenu submenu-two"><a href="javascript:void(0);">Level 1.2<span
+                        class="menu-arrow inside-submenu"></span></a>
+                    <ul>
+                      <li><a href="javascript:void(0);">Level 2.1</a></li>
+                      <li class="submenu submenu-two submenu-three"><a href="javascript:void(0);">Level 2.2<span
+                            class="menu-arrow inside-submenu inside-submenu-two"></span></a>
+                        <ul>
+                          <li><a href="javascript:void(0);">Level 3.1</a></li>
+                          <li><a href="javascript:void(0);">Level 3.2</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script lang="ts" setup>
