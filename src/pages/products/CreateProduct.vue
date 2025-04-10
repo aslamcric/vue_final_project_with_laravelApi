@@ -94,9 +94,10 @@ onMounted(() => {
 });
 
 const fetchCategories = () => {
-  api.get("/categories")
+  api.get("/dropCategory")
     .then((result) => {
-      categories.value = result.data.categories;
+      console.log(result);      
+      categories.value = result.data;
     })
     .catch((err) => {
       console.log(err);
@@ -108,7 +109,7 @@ const productData = reactive({
   photo: "",
   price: "",
   offer_price: "",
-  category_id: "1",
+  category_id: "",
   barcode: "",
   sku: "",
   description: "",

@@ -10,8 +10,8 @@
           <!-- Search bar -->
           <form class="d-flex align-items-center" @submit.prevent>
             <div class="input-group">
-              <input v-model="search" @input="fetchProducts" type="text" class="form-control" placeholder="Search Product..."
-                aria-label="Search" />
+              <input v-model="search" @input="fetchProducts" type="text" class="form-control"
+                placeholder="Search Product..." aria-label="Search" />
               <span class="input-group-text bg-white border-start-0">
                 <i class="ti ti-search text-dark"></i>
               </span>
@@ -61,7 +61,7 @@
                 </td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.offer_price }}</td>
-                <td>{{ product.category_id }}</td>
+                <td>{{ product.categories?.name || 'N/A' }}</td>
                 <td>{{ product.barcode }}</td>
                 <td>{{ product.sku }}</td>
                 <td>{{ product.description }}</td>
@@ -81,7 +81,7 @@
                     <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
-                
+
               </tr>
             </tbody>
           </table>
