@@ -3,11 +3,11 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header bg-primary text-white">
-          <h3 class="mb-0">Create Product</h3>
+          <h3 class="mb-0">Update Product</h3>
         </div>
 
         <div class="card-body">
-          <form @submit.prevent="createProduct">
+          <form @submit.prevent="updateProduct" enctype="multipart/form-data">
             <div class="app-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -15,14 +15,10 @@
                   placeholder="Enter product name" />
               </div>
 
+
               <div class="mb-3">
                 <label for="photo" class="form-label">Photo</label>
                 <input @change="onFileChange" type="file" class="form-control" id="photo" />
-              </div>
-
-              <!-- ✅ Preview Image -->
-              <div v-if="photoPreview" class="mb-3">
-                <img :src="photoPreview" alt="Photo Preview" style="max-width: 80px; max-height: 80px;" />
               </div>
 
               <div class="mb-3">
@@ -76,7 +72,7 @@
               </div>
 
               <div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Update</button>
               </div>
             </div>
           </form>
@@ -88,21 +84,25 @@
 
 <script setup>
 import api from "@/Api";
+import axios from "axios";
 import { onMounted, reactive, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
-const router = useRouter();
+const { id } = useRoute().params;
 const categories = ref([]);
-const photoPreview = ref(null); // ✅ for preview
+const router = useRouter();
 
 onMounted(() => {
   fetchCategories();
+  fetchProductDetails();
 });
 
+// Fetch Categories
 const fetchCategories = () => {
   api.get("/dropCategory")
     .then((result) => {
       console.log(result);
+
       categories.value = result.data;
     })
     .catch((err) => {
@@ -111,6 +111,7 @@ const fetchCategories = () => {
 };
 
 const productData = reactive({
+  id: "",
   name: "",
   photo: "",
   price: "",
@@ -123,38 +124,60 @@ const productData = reactive({
   size: "",
 });
 
-const onFileChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    productData.photo = file;
-    photoPreview.value = URL.createObjectURL(file); // ✅ generate preview
-  }
-};
-
-const createProduct = () => {
-  const formData = new FormData();
-  for (const key in productData) {
-    formData.append(key, productData[key]);
-  }
-
-  api.post("/products", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  })
+// Fetch Product Details
+const fetchProductDetails = () => {
+  api.get(`/products/${id}`)
     .then((result) => {
-      console.log(result);
-      router.push({ path: "/products" });
+      console.log(result.data.product);
+      // productData.value = result.data.product;
+      const product = result.data.product;
+      productData.id = product.id;
+      productData.name = product.name;
+      productData.price = product.price;
+      productData.offer_price = product.offer_price;
+      productData.category_id = product.category_id;
+      productData.barcode = product.barcode;
+      productData.sku = product.sku;
+      productData.description = product.description;
+      productData.weight = product.weight;
+      productData.size = product.size;
     })
     .catch((err) => {
       console.log(err);
     });
 };
+
+
+// Handle file input change
+const onFileChange = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    productData.photo = file;
+  }
+};
+
+const updateProduct = () => {
+  const formData = new FormData();
+  formData.append('_method', 'PUT');  // Add the method override first
+
+  // Append all fields from productData dynamically
+  for (const key in productData) {
+    formData.append(key, productData[key]);
+  }
+
+  if (productData.photo) {
+    formData.append('photo', productData.photo);
+  }
+
+  api.post(`/products/${productData.id}`, formData)
+    .then((result) => {
+      console.log(result);
+      router.push({ path: "/products" });
+    })
+    .catch((err) => {
+      console.log(err.response?.data || err);
+    });
+};
 </script>
 
-<style scoped>
-img {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-</style>
+<style></style>

@@ -5,9 +5,8 @@
         <div class="card-header bg-primary text-white">
           <h3 class="mb-0">Update Product</h3>
         </div>
-
         <div class="card-body">
-          <form @submit.prevent="updateProduct">
+          <form @submit.prevent="updateProduct" enctype="multipart/form-data">
             <div class="app-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -15,10 +14,19 @@
                   placeholder="Enter product name" />
               </div>
 
-
               <div class="mb-3">
                 <label for="photo" class="form-label">Photo</label>
                 <input @change="onFileChange" type="file" class="form-control" id="photo" />
+
+                <!-- Preview the selected image -->
+                <div v-if="photoPreview" class="mt-2">
+                  <img :src="photoPreview" alt="Selected Photo" width="100" />
+                </div>
+
+                <!-- Show current photo if no new file is selected -->
+                <div v-else-if="productData.photo" class="mt-2">
+                  <img :src="`${imgUrl}/${productData.photo}`" alt="Current Photo" width="80" />
+                </div>
               </div>
 
               <div class="mb-3">
@@ -91,6 +99,9 @@ const { id } = useRoute().params;
 const categories = ref([]);
 const router = useRouter();
 
+const photoPreview = ref(null);
+const imgUrl = import.meta.env.VITE_IMG_BASE_URL;
+
 onMounted(() => {
   fetchCategories();
   fetchProductDetails();
@@ -100,8 +111,6 @@ onMounted(() => {
 const fetchCategories = () => {
   api.get("/dropCategory")
     .then((result) => {
-      console.log(result);
-
       categories.value = result.data;
     })
     .catch((err) => {
@@ -127,8 +136,6 @@ const productData = reactive({
 const fetchProductDetails = () => {
   api.get(`/products/${id}`)
     .then((result) => {
-      console.log(result.data.product);
-      // productData.value = result.data.product;
       const product = result.data.product;
       productData.id = product.id;
       productData.name = product.name;
@@ -140,71 +147,61 @@ const fetchProductDetails = () => {
       productData.description = product.description;
       productData.weight = product.weight;
       productData.size = product.size;
+      productData.photo = product.photo;
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-
-
-
 // Handle file input change
 const onFileChange = (e) => {
   const file = e.target.files[0];
   if (file) {
     productData.photo = file;
+    photoPreview.value = URL.createObjectURL(file);
   }
 };
 
-// api.put(`/users/${userData.id}`, formData)
-// Update product data
 const updateProduct = () => {
-
   const formData = new FormData();
+  formData.append('_method', 'PUT');
 
-  formData.append('id', productData.id);
-  formData.append('name', productData.name);
-  formData.append('price', productData.price);
-  formData.append('offer_price', productData.offer_price);
-  formData.append('category_id', productData.category_id);
-  formData.append('barcode', productData.barcode);
-  formData.append('sku', productData.sku);
-  formData.append('description', productData.description);
-  formData.append('weight', productData.weight);
-  formData.append('size', productData.size);
+  // Normal append
+  // for (const key in productData) {
+  //   formData.append(key, productData[key]);
+  // }
 
-  if (productData.photo) {
-    formData.append('photo', productData.photo);
+  // if (productData.photo) {
+  //   formData.append('photo', productData.photo);
+  // }
+
+  // Append with photo
+  for (const key in productData) {
+
+    if (key === "photo") {
+      // only append if it's a File (i.e., newly selected)
+      if (productData.photo instanceof File) {
+        formData.append("photo", productData.photo);
+      }
+    } else {
+      formData.append(key, productData[key]);
+    }
   }
 
-  // Debugging: log all formData contents
-  const data = {};
-  for (let pair of formData.entries()) {
-    // console.log(pair[0] + ': ' + pair[1]);
-    data[pair[0]] = pair[1];
-  }
-
-  api.put(`/products/${data.id}`, data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  })
-    .then((result) => {
-      console.log(result);
-      // router.push({ path: "/products" });
+  api.post(`/products/${productData.id}`, formData)
+    .then(() => {
+      router.push({ path: "/products" });
     })
     .catch((err) => {
       console.log(err.response?.data || err);
     });
 };
-
-// console.log(productData.name);
-// const formData = new FormData();
-// for (const key in productData) {
-//   formData.append(key, productData[key]);
-
-// }
 </script>
 
-<style></style>
+<style scoped>
+img {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+</style>

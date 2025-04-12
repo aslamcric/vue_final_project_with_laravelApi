@@ -110,12 +110,10 @@ import api from "@/Api";
 import { onMounted, reactive, ref } from "vue";
 
 const products = ref([]);
-const categories = ref([]);
 const search = ref("");
 
 onMounted(() => {
   fetchProducts();
-  // fetchCategories()
 });
 
 const imgUrl = import.meta.env.VITE_IMG_BASE_URL;
