@@ -224,97 +224,12 @@
                     Request</span></a></li>
             </ul>
           </li>
-          <li class="submenu-open">
-            <h6 class="submenu-hdr">Pages</h6>
-            <ul>
-              <li><a href="profile.html"><i data-feather="user"></i><span>Profile</span></a></li>
-              <li class="submenu">
-                <a href="javascript:void(0);"><i data-feather="shield"></i><span>Authentication</span><span
-                    class="menu-arrow"></span></a>
-                <ul>
-                  <li class="submenu submenu-two"><a href="javascript:void(0);">Login<span
-                        class="menu-arrow inside-submenu"></span></a>
-                    <!-- <ul>
-                    <li><a href="signin.html">Cover</a></li>
-                    <li><a href="signin-2.html">Illustration</a></li>
-                    <li><a href="signin-3.html">Basic</a></li>
-                  </ul> -->
-                  </li>
-                  <li class="submenu submenu-two"><a href="javascript:void(0);">Register<span
-                        class="menu-arrow inside-submenu"></span></a>
-                    <!-- <ul>
-                    <li><a href="register.html">Cover</a></li>
-                    <li><a href="register-2.html">Illustration</a></li>
-                    <li><a href="register-3.html">Basic</a></li>
-                  </ul> -->
-                  </li>
-                  <li class="submenu submenu-two"><a href="javascript:void(0);">Forgot
-                      Password<span class="menu-arrow inside-submenu"></span></a>
-                    <!-- <ul>
-                    <li><a href="forgot-password.html">Cover</a></li>
-                    <li><a href="forgot-password-2.html">Illustration</a></li>
-                    <li><a href="forgot-password-3.html">Basic</a></li>
-                  </ul> -->
-                  </li>
-                  <li class="submenu submenu-two"><a href="javascript:void(0);">Reset
-                      Password<span class="menu-arrow inside-submenu"></span></a>
-                    <!-- <ul>
-                    <li><a href="reset-password.html">Cover</a></li>
-                    <li><a href="reset-password-2.html">Illustration</a></li>
-                    <li><a href="reset-password-3.html">Basic</a></li>
-                  </ul> -->
-                  </li>
-                  <li class="submenu submenu-two"><a href="javascript:void(0);">Email
-                      Verification<span class="menu-arrow inside-submenu"></span></a>
-                    <!-- <ul>
-                    <li><a href="email-verification.html">Cover</a></li>
-                    <li><a href="email-verification-2.html">Illustration</a></li>
-                    <li><a href="email-verification-3.html">Basic</a></li>
-                  </ul> -->
-                  </li>
-                  <li class="submenu submenu-two"><a href="javascript:void(0);">2 Step
-                      Verification<span class="menu-arrow inside-submenu"></span></a>
-                    <!-- <ul>
-                    <li><a href="two-step-verification.html">Cover</a></li>
-                    <li><a href="two-step-verification-2.html">Illustration</a></li>
-                    <li><a href="two-step-verification-3.html">Basic</a></li>
-                  </ul> -->
-                  </li>
-                  <li><a href="lock-screen.html">Lock Screen</a></li>
-                </ul>
-              </li>
-              <li class="submenu">
-                <a href="javascript:void(0);"><i data-feather="file-minus"></i><span>Error
-                    Pages</span><span class="menu-arrow"></span></a>
-                <ul>
-                  <li><a href="error-404.html">404 Error </a></li>
-                  <li><a href="error-500.html">500 Error </a></li>
-                </ul>
-              </li>
-              <li class="submenu">
-                <a href="javascript:void(0);"><i data-feather="map"></i><span>Places</span><span
-                    class="menu-arrow"></span></a>
-                <ul>
-                  <li><a href="countries.html">Countries</a></li>
-                  <li><a href="states.html">States</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="blank-page.html"><i data-feather="file"></i><span>Blank Page</span> </a>
-              </li>
-              <li>
-                <a href="coming-soon.html"><i data-feather="send"></i><span>Coming Soon</span> </a>
-              </li>
-              <li>
-                <a href="under-maintenance.html"><i data-feather="alert-triangle"></i><span>Under
-                    Maintenance</span> </a>
-              </li>
-            </ul>
-          </li>
+
+          
           <li class="submenu-open">
             <h6 class="submenu-hdr">Settings</h6>
             <ul>
-              <li class="submenu">
+              <!-- <li class="submenu">
                 <a href="javascript:void(0);"><i data-feather="settings"></i><span>General
                     Settings</span><span class="menu-arrow"></span></a>
                 <ul>
@@ -379,9 +294,9 @@
                   <li><a href="storage-settings.html">Storage</a></li>
                   <li><a href="ban-ip-address.html">Ban IP Address</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li>
-                <a href="signin.html"><i data-feather="log-out"></i><span>Logout</span> </a>
+                <a @click="logout"><i data-feather="log-out"></i><span>Logout</span> </a>
               </li>
             </ul>
           </li>
@@ -564,10 +479,25 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+import { useAuthStore } from '@/store/AuthStore';
+import { useRouter } from 'vue-router';
 
+
+const auth = useAuthStore();
+const router = useRouter()
+
+const logout = () => {
+  try {
+    auth.logout()
+    router.push("/");
+  } catch (error) {
+    console.log(error);
+
+  }
+
+
+}
 </script>
 
-<style>
-
-</style>
+<style></style>
