@@ -7,12 +7,13 @@
             <h6 class="submenu-hdr">Main</h6>
             <ul>
               <li class="submenu">
-                <a href="javascript:void(0);" class="subdrop active"><i
-                    data-feather="grid"></i><span>Dashboard</span><span class="menu-arrow"></span></a>
-                <ul>
+                <RouterLink to="/dashboard" class="subdrop active"><i
+                    data-feather="grid"></i><span>Dashboard</span><span class="menu-arrow"></span>
+                  </RouterLink>
+                <!-- <ul>
                   <li><a href="index.html" class="active">Admin Dashboard</a></li>
                   <li><a href="sales-dashboard.html">Sales Dashboard</a></li>
-                </ul>
+                </ul> -->
               </li>
               <!-- <li class="submenu">
               <a href="javascript:void(0);"><i
@@ -43,7 +44,7 @@
             <h6 class="submenu-hdr">Inventory</h6>
             <ul>
               <li>
-                <RouterLink to="products"><i data-feather="box"></i><span>Products</span></RouterLink>
+                <RouterLink to="/products"><i data-feather="box"></i><span>Products</span></RouterLink>
               </li>
               <!-- <li><a href="add-product.html"><i data-feather="plus-square"></i><span>Create
                     Product</span></a></li>
@@ -54,7 +55,7 @@
                   Stocks</span></a></li> -->
 
               <li>
-                <RouterLink to="categories"><i data-feather="codepen"></i><span>Category</span></RouterLink>
+                <RouterLink to="/categories"><i data-feather="codepen"></i><span>Category</span></RouterLink>
               </li>
 
               <!-- <li><a href="sub-categories.html"><i data-feather="speaker"></i><span>Sub
@@ -133,10 +134,10 @@
             <h6 class="submenu-hdr">Peoples</h6>
             <ul>
               <li>
-                <RouterLink to="customers"><i data-feather="user"></i><span>Customers</span></RouterLink>
+                <RouterLink to="/customers"><i data-feather="user"></i><span>Customers</span></RouterLink>
               </li>
               <li>
-                <RouterLink to="suppliers"><i data-feather="users"></i><span>Suppliers</span></RouterLink>
+                <RouterLink to="/suppliers"><i data-feather="users"></i><span>Suppliers</span></RouterLink>
               </li>
               <!-- <li><a href="store-list.html"><i data-feather="home"></i><span>Stores</span></a></li>
             <li><a href="warehouse.html"><i data-feather="archive"></i><span>Warehouses</span></a>
@@ -216,7 +217,7 @@
             <h6 class="submenu-hdr">User Management</h6>
             <ul>
               <li>
-                <RouterLink to="users"><i data-feather="user-check"></i><span>Users</span></RouterLink>
+                <RouterLink to="/users"><i data-feather="user-check"></i><span>Users</span></RouterLink>
               </li>
               <li><a href="roles-permissions.html"><i data-feather="shield"></i><span>Roles &
                     Permissions</span></a></li>

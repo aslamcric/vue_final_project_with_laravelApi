@@ -4,6 +4,8 @@
       <div class="card">
         <div class="card-header bg-primary text-white">
           <h5 class="mb-0">Create Customer</h5>
+
+          <!-- {{ customerData }} -->
         </div>
 
         <div class="card-body">
@@ -33,17 +35,6 @@
                   placeholder="Enter Address"></textarea>
               </div>
 
-              <!-- ✅ Image Upload Section -->
-              <div class="mb-3">
-                <label for="photo" class="form-label">Profile Photo</label>
-                <input @change="onFileChange" type="file" class="form-control" id="photo" />
-              </div>
-
-              <!-- ✅ Preview Image -->
-              <div v-if="photoPreview" class="mb-3">
-                <img :src="photoPreview" alt="Photo Preview" style="max-width: 80px; max-height: 80px;" />
-              </div>
-
               <div>
                 <button type="submit" class="btn btn-primary">Create</button>
               </div>
@@ -57,7 +48,7 @@
 
 <script lang="ts" setup>
 import api from "@/Api";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -67,30 +58,10 @@ const customerData = reactive({
   phone: "",
   email: "",
   address: "",
-  photo: "", 
 });
 
-const photoPreview = ref(null); 
-
-const onFileChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    customerData.photo = file;
-    photoPreview.value = URL.createObjectURL(file); 
-  }
-};
-
 const submitData = () => {
-  const formData = new FormData();
-  for (const key in customerData) {
-    formData.append(key, customerData[key]);
-  }
-
-  api.post("/customers", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  })
+  api.post("/customers", customerData)
     .then((res) => {
       console.log(res);
       router.push({ path: "/customers" });
@@ -102,8 +73,5 @@ const submitData = () => {
 </script>
 
 <style scoped>
-img {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+/* You can add your custom styles here if needed */
 </style>

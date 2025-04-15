@@ -7,27 +7,12 @@
         </div>
 
         <div class="card-body">
-          <form @submit.prevent="submitData" enctype="multipart/form-data">
+          <form @submit.prevent="submitData">
             <div class="app-form">
               <div class="mb-3">
                 <label for="username" class="form-label">Name</label>
                 <input v-model="customerData.name" type="text" class="form-control" placeholder="Enter Name"
                   id="username" />
-              </div>
-
-              <div class="mb-3">
-                <label for="photo" class="form-label">Photo</label>
-                <input @change="onFileChange" type="file" class="form-control" id="photo" />
-
-                <!-- New image preview -->
-                <div v-if="photoPreview" class="mt-2">
-                  <img :src="photoPreview" alt="Selected Photo" width="100" />
-                </div>
-
-                <!-- Existing image preview -->
-                <div v-else-if="customerData.photo" class="mt-2">
-                  <img :src="`${imgUrl}/${customerData.photo}`" alt="Current Photo" width="80" />
-                </div>
               </div>
 
               <div class="mb-3">
@@ -62,14 +47,13 @@
 
 <script setup>
 import api from '@/Api';
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const { id } = useRoute().params;
-const router = useRouter();
+// console.log(id);
 
-const imgUrl = import.meta.env.VITE_IMG_BASE_URL;
-const photoPreview = ref(null);
+const router = useRouter();
 
 const customerData = reactive({
   id: "",
@@ -86,55 +70,32 @@ onMounted(() => {
 
 const fetchCustomer = () => {
   api.get(`/customers/${id}`)
-    .then((result) => {
-      const customer = result.data.customer;
-      customerData.id = customer.id;
-      customerData.name = customer.name;
-      customerData.phone = customer.phone;
-      customerData.email = customer.email;
-      customerData.address = customer.address;
-      customerData.photo = customer.photo;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-const onFileChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    customerData.photo = file;
-    photoPreview.value = URL.createObjectURL(file);
-  }
+  .then((result) => {
+    console.log(result);
+    customerData.id = result.data.customer.id;
+    customerData.name = result.data.customer.name;
+    customerData.phone = result.data.customer.phone;
+    customerData.email = result.data.customer.email;
+    customerData.address = result.data.customer.address;
+    customerData.photo = result.data.customer.photo;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 };
 
 const submitData = () => {
-  const formData = new FormData();
-  formData.append('_method', 'PUT');
-
-  for (const key in customerData) {
-    if (key === "photo") {
-      if (customerData.photo instanceof File) {
-        formData.append("photo", customerData.photo);
-      }
-    } else {
-      formData.append(key, customerData[key]);
-    }
-  }
-
-  api.post(`/customers/${customerData.id}`, formData)
-    .then(() => {
+  api.put("/customers/" + customerData.id, customerData)
+    .then((result) => {
+      console.log(result.data);
       router.push('/customers');
     })
     .catch((err) => {
-      console.log("Update error", err.response?.data || err);
+      console.log("Update error", err);
     });
 };
 </script>
 
 <style scoped>
-img {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+/* You can add your custom styles here if needed */
 </style>

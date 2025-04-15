@@ -3,18 +3,18 @@
 
     <!-- Logo -->
     <div class="header-left active">
-      <a href="index.html" class="logo logo-normal">
+      <RouterLink to="/dashboard" class="logo logo-normal">
         <img src="/assets/img/logo.png" alt="">
-      </a>
-      <a href="index.html" class="logo logo-white">
+      </RouterLink>
+      <RouterLink to="/dashboard" class="logo logo-white">
         <img src="/assets/img/logo-white.png" alt="">
-      </a>
-      <a href="index.html" class="logo-small">
+      </RouterLink>
+      <RouterLink to="/dashboard" class="logo-small">
         <img src="/assets/img/logo-small.png" alt="">
-      </a>
-      <a id="toggle_btn" href="javascript:void(0);">
+      </RouterLink>
+      <RouterLink id="toggle_btn" to="/dashboard">
         <i data-feather="chevrons-left" class="feather-16"></i>
-      </a>
+      </RouterLink>
     </div>
     <!-- /Logo -->
 
@@ -279,8 +279,8 @@
             <a class="dropdown-item" href="general-settings.html"><i class="me-2"
                 data-feather="settings"></i>Settings</a>
             <hr class="m-0">
-            <a @click="logout" class="dropdown-item logout pb-0"><img src="/assets/img/log-out.svg"
-                class="me-2" alt="img">Logout </a>
+            <a @click="logout" class="dropdown-item logout pb-0"><img src="/assets/img/log-out.svg" class="me-2"
+                alt="img">Logout </a>
           </div>
         </div>
       </li>
@@ -322,6 +322,4 @@ const logout = () => {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
