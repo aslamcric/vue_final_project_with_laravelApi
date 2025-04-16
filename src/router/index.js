@@ -11,6 +11,7 @@ import NotFound from "@/pages/NotFound.vue";
 import CreateProduct from "@/pages/products/CreateProduct.vue";
 import ManageProduct from "@/pages/products/ManageProduct.vue";
 import UpdateProduct from "@/pages/products/UpdateProduct.vue";
+import OrderReport from "@/pages/reports/OrderReport.vue";
 import CreateSupplier from "@/pages/suppliers/CreateSupplier.vue";
 import ManageSupplier from "@/pages/suppliers/ManageSupplier.vue";
 import UpdateSupplier from "@/pages/suppliers/UpdateSupplier.vue";
@@ -22,10 +23,10 @@ import { createRouter, createWebHistory } from "vue-router";
 
 
 const routes = [
-
-  {path: '/', name: 'Login', component: Sign_in, meta: { public: true },},
+  { path: "/", name: "Login", component: Sign_in, meta: { public: true } },
   {
-    path: '/', component: MainLayout,
+    path: "/",
+    component: MainLayout,
 
     children: [
       { path: "/dashboard", component: Dashboard },
@@ -54,11 +55,14 @@ const routes = [
       { path: "categories", component: ManageCategory },
       { path: "categories/create", component: CreateCategory },
       { path: "categories/edit/:id", component: UpdateCategory },
+
+      // Report
+      { path: "orderReport", component: OrderReport },
     ],
   },
-  
-  { path: '/:pathMatch(.*)*', component: NotFound },  
-]
+
+  { path: "/:pathMatch(.*)*", component: NotFound },
+];
 
 // const routes = [
 //   { path: "/login", name: "Login", component: Signin, meta: { public: true } },

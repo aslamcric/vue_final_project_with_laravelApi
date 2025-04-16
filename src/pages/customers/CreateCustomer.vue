@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import api from "@/Api";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";

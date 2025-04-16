@@ -9,7 +9,7 @@
               <li class="submenu">
                 <RouterLink to="/dashboard" class="subdrop active"><i
                     data-feather="grid"></i><span>Dashboard</span><span class="menu-arrow"></span>
-                  </RouterLink>
+                </RouterLink>
                 <!-- <ul>
                   <li><a href="index.html" class="active">Admin Dashboard</a></li>
                   <li><a href="sales-dashboard.html">Sales Dashboard</a></li>
@@ -110,8 +110,10 @@
             <h6 class="submenu-hdr">Purchases</h6>
             <ul>
               <li><a href="purchase-list.html"><i data-feather="shopping-bag"></i><span>Purchases</span></a></li>
-              <li><a href="purchase-order-report.html"><i data-feather="file-minus"></i><span>Purchase
-                    Details</span></a></li>
+              <li>
+                <RouterLink to="/"><i data-feather="file-minus"></i><span>Purchase
+                    Details</span></RouterLink>
+              </li>
               <li><a href="purchase-returns.html"><i data-feather="refresh-cw"></i><span>Purchase
                     Return</span></a></li>
             </ul>
@@ -189,8 +191,8 @@
           <li class="submenu-open">
             <h6 class="submenu-hdr">Reports</h6>
             <ul>
-              <li><a href="sales-report.html"><i data-feather="bar-chart-2"></i><span>Orders
-                    Report</span></a></li>
+              <li><RouterLink to="/orderReport"><i data-feather="bar-chart-2"></i><span>Orders
+                    Report</span></RouterLink></li>
               <li><a href="purchase-report.html"><i data-feather="pie-chart"></i><span>Purchase
                     report</span></a></li>
               <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Stocks
@@ -226,7 +228,7 @@
             </ul>
           </li>
 
-          
+
           <li class="submenu-open">
             <h6 class="submenu-hdr">Settings</h6>
             <ul>
