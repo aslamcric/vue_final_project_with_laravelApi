@@ -12,6 +12,7 @@ import CreateProduct from "@/pages/products/CreateProduct.vue";
 import ManageProduct from "@/pages/products/ManageProduct.vue";
 import UpdateProduct from "@/pages/products/UpdateProduct.vue";
 import OrderReport from "@/pages/reports/OrderReport.vue";
+import PurchaseReport from "@/pages/reports/PurchaseReport.vue";
 import CreateSupplier from "@/pages/suppliers/CreateSupplier.vue";
 import ManageSupplier from "@/pages/suppliers/ManageSupplier.vue";
 import UpdateSupplier from "@/pages/suppliers/UpdateSupplier.vue";
@@ -58,6 +59,7 @@ const routes = [
 
       // Report
       { path: "orderReport", component: OrderReport },
+      { path: "purchaseReport", component: PurchaseReport },
     ],
   },
 

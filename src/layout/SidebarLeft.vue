@@ -193,8 +193,8 @@
             <ul>
               <li><RouterLink to="/orderReport"><i data-feather="bar-chart-2"></i><span>Orders
                     Report</span></RouterLink></li>
-              <li><a href="purchase-report.html"><i data-feather="pie-chart"></i><span>Purchase
-                    report</span></a></li>
+              <li><RouterLink to="/purchaseReport"><i data-feather="pie-chart"></i><span>Purchase
+                    report</span></RouterLink></li>
               <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Stocks
                     Report</span></a></li>
 
