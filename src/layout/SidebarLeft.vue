@@ -88,7 +88,8 @@
           <li class="submenu-open">
             <h6 class="submenu-hdr">Orders</h6>
             <ul>
-              <li><a href="sales-list.html"><i data-feather="shopping-cart"></i><span>Orders</span></a>
+              <li>
+                <RouterLink to="/orders"><i data-feather="shopping-cart"></i><span>Orders</span></RouterLink>
               </li>
               <li><a href="invoice-report.html"><i data-feather="file-text"></i><span>Order Details</span></a></li>
 
@@ -191,10 +192,14 @@
           <li class="submenu-open">
             <h6 class="submenu-hdr">Reports</h6>
             <ul>
-              <li><RouterLink to="/orderReport"><i data-feather="bar-chart-2"></i><span>Orders
-                    Report</span></RouterLink></li>
-              <li><RouterLink to="/purchaseReport"><i data-feather="pie-chart"></i><span>Purchase
-                    report</span></RouterLink></li>
+              <li>
+                <RouterLink to="/orderReport"><i data-feather="bar-chart-2"></i><span>Orders
+                    Report</span></RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/purchaseReport"><i data-feather="pie-chart"></i><span>Purchase
+                    report</span></RouterLink>
+              </li>
               <li><a href="inventory-report.html"><i data-feather="inbox"></i><span>Stocks
                     Report</span></a></li>
 
@@ -484,7 +489,7 @@
 
 <script setup>
 import { useAuthStore } from '@/store/AuthStore';
-import { useRouter } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
 
 const auth = useAuthStore();

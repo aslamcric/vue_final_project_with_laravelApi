@@ -11,11 +11,13 @@
                             <div class="row mb-3 g-3">
                                 <div class="col-md-4">
                                     <label for="start_date" class="form-label">Start Date</label>
-                                    <input v-model="search.start_date" type="date" id="start_date" class="form-control" required />
+                                    <input v-model="search.start_date" type="date" id="start_date" class="form-control"
+                                        required />
                                 </div>
                                 <div class="col-md-4">
                                     <label for="end_date" class="form-label">End Date</label>
-                                    <input v-model="search.end_date" type="date" id="end_date" class="form-control" required />
+                                    <input v-model="search.end_date" type="date" id="end_date" class="form-control"
+                                        required />
                                 </div>
                                 <div class="col-md-4">
                                     <label for="supplier_id" class="form-label">Supplier</label>
@@ -26,9 +28,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="payment_status_id" class="form-label">Payment Status</label>
-                                    <select v-model="search.payment_status_id" id="payment_status_id" class="form-control">
+                                    <select v-model="search.payment_status_id" id="payment_status_id"
+                                        class="form-control">
                                         <option value="">All Status</option>
-                                        <option v-for="p in paymentStatuses" :key="p.id" :value="p.id">{{ p.name }}</option>
+                                        <option v-for="p in paymentStatuses" :key="p.id" :value="p.id">{{ p.name }}
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-4 d-flex align-items-end">
@@ -55,7 +59,7 @@
                                     <tr v-for="purchase in purchases" :key="purchase.id">
                                         <td>{{ purchase.id }}</td>
                                         <td>{{ getSupplierName(purchase.supplier_id) }}</td>
-                                        <td>{{ getPaymentStatusName(purchase.payment_status_id) }}</td>
+                                        <td>{{ getPaymentStatusName(purchase.status_id) }}</td>
                                         <td>{{ purchase.order_total.toFixed(2) }}</td>
                                         <td>{{ purchase.paid_amount.toFixed(2) }}</td>
                                         <td>{{ purchase.discount.toFixed(2) }}</td>
@@ -83,7 +87,8 @@
                             </table>
                         </div>
 
-                        <p v-else class="mt-4 text-center text-muted">No purchases found for the selected date range.</p>
+                        <p v-else class="mt-4 text-center text-muted">No purchases found for the selected date range.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -124,10 +129,10 @@ const fetchPurchaseReport = () => {
     api.post('/purchaseReport', search)
         .then(res => {
             console.log(res.data);
-            // purchases.value = res.data.purchases;
-            // totalPaid.value = res.data.total_paid;
-            // totalUnpaid.value = res.data.total_unpaid;
-            // totalPending.value = res.data.total_pending;
+            purchases.value = res.data.purchases;
+            totalPaid.value = res.data.total_paid;
+            totalUnpaid.value = res.data.total_unpaid;
+            totalPending.value = res.data.total_pending;
         })
         .catch(err => console.error('Error fetching purchase report:', err));
 };
