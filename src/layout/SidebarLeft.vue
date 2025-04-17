@@ -76,8 +76,8 @@
           <li class="submenu-open">
             <h6 class="submenu-hdr">Stock</h6>
             <ul>
-              <li><a href="manage-stocks.html"><i data-feather="package"></i><span>Manage
-                    Stock</span></a></li>
+              <li><RouterLink to="/stocks"><i data-feather="package"></i><span>Manage
+                    Stock</span></RouterLink></li>
 
               <!-- <li><a href="stock-adjustment.html"><i data-feather="clipboard"></i><span>Stock
                   Adjustment</span></a></li>
@@ -110,7 +110,7 @@
           <li class="submenu-open">
             <h6 class="submenu-hdr">Purchases</h6>
             <ul>
-              <li><a href="purchase-list.html"><i data-feather="shopping-bag"></i><span>Purchases</span></a></li>
+              <li><RouterLink to="/purchase"><i data-feather="shopping-bag"></i><span>Purchases</span></RouterLink></li>
               <li>
                 <RouterLink to="/"><i data-feather="file-minus"></i><span>Purchase
                     Details</span></RouterLink>
@@ -498,7 +498,7 @@ const router = useRouter()
 const logout = () => {
   try {
     auth.logout()
-    router.push("/");
+    router.push('/login')
   } catch (error) {
     console.log(error);
 

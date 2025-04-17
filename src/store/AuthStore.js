@@ -29,20 +29,37 @@ export const useAuthStore = defineStore("auth", {
       }
       },
       
+    // logout() {
+    //   api
+    //     .post("/logout")
+    //     .then((result) => {
+    //       console.log(result);
+    //       this.token = null;
+    //       this.user = null;
+    //       localStorage.removeItem("token");
+    //       delete api.defaults.headers.common["Authorization"];
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
+
+
+
     logout() {
-      api
-        .post("/logout")
-        .then((result) => {
-          console.log(result);
-          this.token = null;
-          this.user = null;
-          localStorage.removeItem("token");
-          delete api.defaults.headers.common["Authorization"];
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.token = null;
+      this.user = null;
+      localStorage.removeItem("token");
+      delete api.defaults.headers.common["Authorization"];
+    
+      try {
+        api.post("/logout");
+      } catch (err) {
+        console.log("Logout API failed", err);
+      }
     },
+    
+
 
     initAuth() {
       if (this.token) {

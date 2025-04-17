@@ -13,8 +13,10 @@ import ManageOrder from "@/pages/orders/ManageOrder.vue";
 import CreateProduct from "@/pages/products/CreateProduct.vue";
 import ManageProduct from "@/pages/products/ManageProduct.vue";
 import UpdateProduct from "@/pages/products/UpdateProduct.vue";
+import ManagePurchase from "@/pages/purchases/ManagePurchase.vue";
 import OrderReport from "@/pages/reports/OrderReport.vue";
 import PurchaseReport from "@/pages/reports/PurchaseReport.vue";
+import ManageStock from "@/pages/stocks/ManageStock.vue";
 import CreateSupplier from "@/pages/suppliers/CreateSupplier.vue";
 import ManageSupplier from "@/pages/suppliers/ManageSupplier.vue";
 import UpdateSupplier from "@/pages/suppliers/UpdateSupplier.vue";
@@ -63,13 +65,23 @@ const routes = [
       { path: "orders", component: ManageOrder },
       { path: "orders/create", component: CreateOrder },
 
+      // Purchase
+      { path: "purchase", component: ManagePurchase },
+
+      // Stock
+      {path: "stocks", component: ManageStock},
+
       // Report
       { path: "orderReport", component: OrderReport },
       { path: "purchaseReport", component: PurchaseReport },
+
+     
     ],
   },
-
+  // Not Found
   { path: "/:pathMatch(.*)*", component: NotFound },
+
+  
 ];
 
 const router = createRouter({

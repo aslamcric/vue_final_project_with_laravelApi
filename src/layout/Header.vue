@@ -258,7 +258,7 @@
               <img src="/assets/img/avator1.jpg" alt="" class="img-fluid">
             </span>
             <span class="user-detail">
-              <span class="user-name">John Smilga</span>
+              <span class="user-name">Md. Aslam2</span>
               <span class="user-role">Super Admin</span>
             </span>
           </span>
@@ -269,18 +269,20 @@
               <span class="user-img"><img src="/assets/img/avator1.jpg" alt="">
                 <span class="status online"></span></span>
               <div class="profilesets">
-                <h6>John Smilga</h6>
+                <h6>Md. Aslam</h6>
                 <h5>Super Admin</h5>
               </div>
             </div>
             <hr class="m-0">
-            <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My
+            <a class="dropdown-item" href="/login"> <i class="me-2" data-feather="user"></i> My
               Profile</a>
             <a class="dropdown-item" href="general-settings.html"><i class="me-2"
                 data-feather="settings"></i>Settings</a>
             <hr class="m-0">
             <a @click="logout" class="dropdown-item logout pb-0"><img src="/assets/img/log-out.svg" class="me-2"
                 alt="img">Logout </a>
+
+                <!-- <a @click="logout"><i data-feather="log-out"></i><span>Logout</span> </a> -->
           </div>
         </div>
       </li>
@@ -293,8 +295,8 @@
           class="fa fa-ellipsis-v"></i></a>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" href="profile.html">My Profile</a>
-        <a class="dropdown-item" href="general-settings.html">Settings</a>
-        <a class="dropdown-item" href="signin.html">Logout</a>
+        <a class="dropdown-item" href="general-settings.html">Settings</a>        
+        <a @click="logout" class="dropdown-item">Logout </a>
       </div>
     </div>
     <!-- /Mobile Menu -->
@@ -312,7 +314,7 @@ const router = useRouter()
 const logout = () => {
   try {
     auth.logout()
-    router.push("/");
+    router.push('/login')
   } catch (error) {
     console.log(error);
 
