@@ -34,6 +34,8 @@ const routes = [
     component: MainLayout,
 
     children: [
+      { path: "/", component: Dashboard },
+      { path: "/home", component: Dashboard },
       { path: "dashboard", component: Dashboard },
 
       // Customer

@@ -107,9 +107,9 @@ onMounted(() => {
 });
 
 // Fetch Purchases
-const fetchPurchases = (url = "/allOrderindex") => {
+const fetchPurchases = (url = "/allPurchaseindex") => {
   if (typeof url !== "string") {
-    url = "/allOrderindex";
+    url = "/allPurchaseindex";
   }
   api
     .get(url, { params: { search: search.value } })
