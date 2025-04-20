@@ -10,6 +10,7 @@ import Sign_in from "@/pages/logingRegister/Sign_in.vue";
 import NotFound from "@/pages/NotFound.vue";
 import CreateOrder from "@/pages/orders/CreateOrder.vue";
 import ManageOrder from "@/pages/orders/ManageOrder.vue";
+import ShowOrder from "@/pages/orders/ShowOrder.vue";
 import CreateProduct from "@/pages/products/CreateProduct.vue";
 import ManageProduct from "@/pages/products/ManageProduct.vue";
 import UpdateProduct from "@/pages/products/UpdateProduct.vue";
@@ -66,24 +67,21 @@ const routes = [
       // Order
       { path: "orders", component: ManageOrder },
       { path: "orders/create", component: CreateOrder },
+      { path: "orders/show/:id", component: ShowOrder },
 
       // Purchase
       { path: "purchase", component: ManagePurchase },
 
       // Stock
-      {path: "stocks", component: ManageStock},
+      { path: "stocks", component: ManageStock },
 
       // Report
       { path: "orderReport", component: OrderReport },
       { path: "purchaseReport", component: PurchaseReport },
-
-     
     ],
   },
   // Not Found
   { path: "/:pathMatch(.*)*", component: NotFound },
-
-  
 ];
 
 const router = createRouter({
