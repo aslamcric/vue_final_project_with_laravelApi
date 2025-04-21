@@ -95,19 +95,19 @@
                 <!-- Totals -->
                 <tfoot>
                   <tr>
-                    <td colspan="5" class="text-end">Sub Total</td>
+                    <td colspan="7" class="text-end">Sub Total</td>
                     <td>{{ dataObj.subtotal }}</td>
                   </tr>
                   <tr>
-                    <td colspan="5" class="text-end">Tax (5%)</td>
+                    <td colspan="7" class="text-end">Tax (5%)</td>
                     <td>{{ dataObj.tax }}</td>
                   </tr>
                   <tr>
-                    <td colspan="5" class="text-end">Discount</td>
+                    <td colspan="7" class="text-end">Discount</td>
                     <td>{{ dataObj.totalDiscount }}</td>
                   </tr>
                   <tr>
-                    <td colspan="5" class="text-end fw-bold">Grand Total</td>
+                    <td colspan="7" class="text-end fw-bold">Grand Total</td>
                     <td class="fw-bold">{{ dataObj.grandTotal }}</td>
                   </tr>
                 </tfoot>
@@ -130,6 +130,7 @@
 import api from '@/Api';
 import { ref, reactive, onMounted, computed } from 'vue';
 import { useCart } from '../cart/Cart';
+import router from '@/router';
 
 // Cart System
 const cart = useCart("orders");
@@ -163,26 +164,29 @@ const calculatedSubtotal = computed(() => {
   return 0;
 });
 
-// Grand Total Calculation
+
 const grandTotalCalculation = () => {
   const cartList = cart.getCart();
 
-  const subtotal = cartList.reduce((acc, ele) => acc + (ele.price * ele.qty), 0);
+  const subtotalBeforeDiscount = cartList.reduce((acc, ele) => acc + (ele.price * ele.qty), 0);
   const totalDiscount = cartList.reduce((acc, ele) => acc + ele.discount, 0);
-  const tax = (subtotal * 5) / 100;
-  const grandTotal = (subtotal + tax) - totalDiscount; // ✅ fixed here
+  const subtotalAfterDiscount = subtotalBeforeDiscount - totalDiscount;
+  const tax = (subtotalAfterDiscount * 5) / 100;
+  const grandTotal = subtotalAfterDiscount + tax;
 
-  dataObj.subtotal = subtotal;
+  dataObj.subtotal = subtotalBeforeDiscount;
   dataObj.tax = tax;
   dataObj.totalDiscount = totalDiscount;
   dataObj.grandTotal = grandTotal;
 }
 
+
 // Add to Cart
 const addToCart = () => {
   if (!dataObj.selectedProduct.id) return; // ✅ check product selected
 
-  let calculate_discount = dataObj.discount * dataObj.qty;
+  // let calculate_discount = dataObj.discount * dataObj.qty;
+  let calculate_discount = dataObj.discount;
   let subtotal = (dataObj.selectedProduct.offer_price * dataObj.qty) - calculate_discount;
 
   const data = {
@@ -224,7 +228,9 @@ const processOrder = () => {
   const processData = {
     products: cart.getCart(),
     customer: dataObj.selectedCustomer,
+    vat: dataObj.totalVat,
     discount: dataObj.totalDiscount,
+    tax: dataObj.tax,
     grandtotal: dataObj.grandTotal,
   };
 
@@ -232,6 +238,7 @@ const processOrder = () => {
     .then(result => {
       console.log(result.data);
       clearCart(); 
+      router.push('/orders')
     })
     .catch(err => {
       console.log(err);

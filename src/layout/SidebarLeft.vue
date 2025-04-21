@@ -91,7 +91,7 @@
               <li>
                 <RouterLink to="/orders"><i data-feather="shopping-cart"></i><span>Orders</span></RouterLink>
               </li>
-              <li><a href="invoice-report.html"><i data-feather="file-text"></i><span>Order Details</span></a></li>
+              <li><RouterLink to="/orderDetails"><i data-feather="file-text"></i><span>Order Details</span></RouterLink></li>
 
               <!-- <li><a href="sales-returns.html"><i data-feather="copy"></i><span>Sales
                   Return</span></a></li>
@@ -112,7 +112,7 @@
             <ul>
               <li><RouterLink to="/purchase"><i data-feather="shopping-bag"></i><span>Purchases</span></RouterLink></li>
               <li>
-                <RouterLink to="/"><i data-feather="file-minus"></i><span>Purchase
+                <RouterLink to="/purchaseDetails"><i data-feather="file-minus"></i><span>Purchase
                     Details</span></RouterLink>
               </li>
               <li><a href="purchase-returns.html"><i data-feather="refresh-cw"></i><span>Purchase

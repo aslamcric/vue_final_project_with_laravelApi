@@ -8,12 +8,14 @@ import UpdateCustomer from "@/pages/customers/UpdateCustomer.vue";
 import Dashboard from "@/pages/Dashboard.vue";
 import Sign_in from "@/pages/logingRegister/Sign_in.vue";
 import NotFound from "@/pages/NotFound.vue";
+import ManageOrderDetail from "@/pages/orderDetails/ManageOrderDetail.vue";
 import CreateOrder from "@/pages/orders/CreateOrder.vue";
 import ManageOrder from "@/pages/orders/ManageOrder.vue";
 import ShowOrder from "@/pages/orders/ShowOrder.vue";
 import CreateProduct from "@/pages/products/CreateProduct.vue";
 import ManageProduct from "@/pages/products/ManageProduct.vue";
 import UpdateProduct from "@/pages/products/UpdateProduct.vue";
+import ManagePurchaseDetail from "@/pages/purchaseDetail/ManagePurchaseDetail.vue";
 import ManagePurchase from "@/pages/purchases/ManagePurchase.vue";
 import OrderReport from "@/pages/reports/OrderReport.vue";
 import PurchaseReport from "@/pages/reports/PurchaseReport.vue";
@@ -68,6 +70,12 @@ const routes = [
       { path: "orders", component: ManageOrder },
       { path: "orders/create", component: CreateOrder },
       { path: "orders/show/:id", component: ShowOrder },
+
+      // OrderDetail
+      { path: "orderDetails", component: ManageOrderDetail },
+
+      // PurchaseDetail
+      { path: "purchaseDetails", component: ManagePurchaseDetail },
 
       // Purchase
       { path: "purchase", component: ManagePurchase },

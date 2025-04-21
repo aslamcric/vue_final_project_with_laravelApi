@@ -258,7 +258,7 @@
               <img src="/assets/img/avator1.jpg" alt="" class="img-fluid">
             </span>
             <span class="user-detail">
-              <span class="user-name">Md. Aslam2</span>
+              <span class="user-name">Md. Aslam</span>
               <span class="user-role">Super Admin</span>
             </span>
           </span>
