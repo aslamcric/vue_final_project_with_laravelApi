@@ -16,6 +16,7 @@ import CreateProduct from "@/pages/products/CreateProduct.vue";
 import ManageProduct from "@/pages/products/ManageProduct.vue";
 import UpdateProduct from "@/pages/products/UpdateProduct.vue";
 import ManagePurchaseDetail from "@/pages/purchaseDetail/ManagePurchaseDetail.vue";
+import CreatePurchase from "@/pages/purchases/CreatePurchase.vue";
 import ManagePurchase from "@/pages/purchases/ManagePurchase.vue";
 import OrderReport from "@/pages/reports/OrderReport.vue";
 import PurchaseReport from "@/pages/reports/PurchaseReport.vue";
@@ -79,6 +80,7 @@ const routes = [
 
       // Purchase
       { path: "purchase", component: ManagePurchase },
+      { path: "purchases/create", component: CreatePurchase },
 
       // Stock
       { path: "stocks", component: ManageStock },

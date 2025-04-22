@@ -23,6 +23,7 @@
                 <div class="invoice-address text-start mb-4">
                   <h6 class="fw-bold mb-2 text-primary">Invoice To:</h6>
                   <option disabled value="">Select Customer</option>
+
                   <select v-model="dataObj.selectedCustomer" class="form-control mb-2">
                     <option v-for="c in customers" :key="c.id" :value="c">{{ c.name }}</option>
                   </select>
@@ -52,7 +53,7 @@
                   <tr>
                     <th>#</th>
                     <th>
-                      <option value="" >Select Product</option>
+                      <option value="">Select Product</option>
                       <select v-model="dataObj.selectedProduct" class="form-control">
                         <option v-for="p in products" :key="p.id" :value="p">{{ p.name }}</option>
                       </select>
@@ -237,7 +238,7 @@ const processOrder = () => {
   api.post("/order/processOrder", processData)
     .then(result => {
       console.log(result.data);
-      clearCart(); 
+      clearCart();
       router.push('/orders')
     })
     .catch(err => {
