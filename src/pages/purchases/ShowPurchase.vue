@@ -5,9 +5,10 @@
                 <!-- Invoice Header -->
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <h6 class="fw-bold text-primary">Order Invoice From:</h6>
+                        <h6 class="fw-bold text-primary">Purchase Invoice From:</h6>
                         <ul class="list-unstyled">
-                            <li>Invoice: NO-100{{ id }}</li>
+                            <li>Invoice: NO-100{{ purchase.id }}</li>
+                            <li>Dhaka, Bangladesh</li>
                             <li>Phone: 01793 956 777</li>
                             <li>Email: mdaslamcric@gmail.com</li>
                         </ul>
@@ -16,9 +17,10 @@
                     <div class="col-md-3">
                         <h6 class="fw-bold text-primary">Invoice To:</h6>
                         <ul class="list-unstyled">
-                            <li>Customer Name: {{ order.customers?.name }}</li>
-                            <li>Address: {{ order.customers?.address }}</li>
-                            <li>Email: {{ order.customers?.email }}</li>
+                            <li>Supplier Name: {{ purchase.supplier?.name }}</li>
+                            <li>Address: {{ purchase.supplier?.address }}</li>
+                            <li>Email: {{ purchase.supplier?.email }}</li>
+                            <li>Phone: {{ purchase.supplier?.phone }}</li>
                         </ul>
                     </div>
                 </div>
@@ -37,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in order.order_details" :key="item.id">
+                            <tr v-for="(item, index) in purchase.purchase_details" :key="item.id">
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ item.products?.name }}</td>
                                 <td>{{ item.qty }}</td>
@@ -46,20 +48,18 @@
                                 <td>{{ format(item.price * item.qty - item.discount) }}</td>
                             </tr>
                         </tbody>
-
-                        <!-- Totals Section -->
                         <tfoot>
                             <tr>
-                                <td colspan="5" class="text-end fw-bold">Sub Total</td>
-                                <td class="fw-bold">{{ format(subtotal) }}</td>
+                                <td colspan="5" class="text-end">Total</td>
+                                <td>{{ format(total) }}</td>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-end fw-bold">Tax (5%)</td>
-                                <td class="fw-bold">{{ format(tax) }}</td>
+                                <td colspan="5" class="text-end">Tax (5%)</td>
+                                <td>{{ format(tax) }}</td>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-end fw-bold">Discount</td>
-                                <td class="fw-bold">{{ format(totalDiscount) }}</td>
+                                <td colspan="5" class="text-end">Total Discount</td>
+                                <td>{{ format(totalDiscount) }}</td>
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-end fw-bold">Grand Total</td>
@@ -79,44 +79,36 @@
 </template>
 
 <script setup>
-// Imports
 import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import api from '@/Api';
 
-// State Variables
-const order = ref({});
-const error = ref(null);
-
-// Get Route ID
 const route = useRoute();
 const id = route.params.id;
 
-// Fetch Order from API
+const purchase = ref({});
+const error = ref(null);
+
 onMounted(() => {
-    showOrders(id);
+    fetchPurchase(id);
 });
 
-// API Call
-const showOrders = (id) => {
+const fetchPurchase = (id) => {
     api
-        .get(`/vueorder/show/${id}`)
+        .get(`/vuePurchase/show/${id}`)
         .then((res) => {
-            console.log(res.data.order);
-            
-            order.value = res.data.order[0];
+            console.log(res.data.purchase);            
+            purchase.value = res.data.purchase[0];
         })
         .catch((err) => {
-            console.log(err);
+            console.error(err);
         });
 };
 
-// Format Number to 2 Decimal Places
 function format(value) {
     return parseFloat(value).toFixed(2);
 }
 
-// Print Invoice
 function printInvoice() {
     const btn = document.getElementById('printButton');
     btn.style.display = 'none';
@@ -126,33 +118,25 @@ function printInvoice() {
     }, 1000);
 }
 
-// Computed Subtotal
-const subtotal = computed(() => {
-    if (!order.value.order_details) return 0;
-    return order.value.order_details.reduce((acc, item) => {
-        return acc + (item.price * item.qty);
+// Calculations
+const total = computed(() => {
+    if (!purchase.value.purchase_details) return 0;
+    return purchase.value.purchase_details.reduce((sum, item) => {
+        return sum + (item.price * item.qty - item.discount);
     }, 0);
 });
 
-// Computed Total Discount
 const totalDiscount = computed(() => {
-    if (!order.value.order_details) return 0;
-    return order.value.order_details.reduce((acc, item) => {
-        return acc + item.discount;
+    if (!purchase.value.purchase_details) return 0;
+    return purchase.value.purchase_details.reduce((sum, item) => {
+        return sum + item.discount;
     }, 0);
 });
 
-// Computed Tax (5% of subtotal)
-const tax = computed(() => {
-    return (subtotal.value * 5) / 100;
-});
-
-// Computed Grand Total
-const grandTotal = computed(() => {
-    return (subtotal.value + tax.value) - totalDiscount.value;
-});
+const tax = computed(() => (total.value * 5) / 100);
+const grandTotal = computed(() => total.value + tax.value - totalDiscount.value);
 </script>
 
 <style scoped>
-/* Optional custom styles */
+/* Add your custom styles if needed */
 </style>

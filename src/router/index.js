@@ -18,6 +18,7 @@ import UpdateProduct from "@/pages/products/UpdateProduct.vue";
 import ManagePurchaseDetail from "@/pages/purchaseDetail/ManagePurchaseDetail.vue";
 import CreatePurchase from "@/pages/purchases/CreatePurchase.vue";
 import ManagePurchase from "@/pages/purchases/ManagePurchase.vue";
+import ShowPurchase from "@/pages/purchases/ShowPurchase.vue";
 import OrderReport from "@/pages/reports/OrderReport.vue";
 import PurchaseReport from "@/pages/reports/PurchaseReport.vue";
 import ManageStock from "@/pages/stocks/ManageStock.vue";
@@ -75,12 +76,13 @@ const routes = [
       // OrderDetail
       { path: "orderDetails", component: ManageOrderDetail },
 
-      // PurchaseDetail
-      { path: "purchaseDetails", component: ManagePurchaseDetail },
-
       // Purchase
       { path: "purchase", component: ManagePurchase },
       { path: "purchases/create", component: CreatePurchase },
+      { path: "purchases/show/:id", component: ShowPurchase },
+
+      // PurchaseDetail
+      { path: "purchaseDetails", component: ManagePurchaseDetail },
 
       // Stock
       { path: "stocks", component: ManageStock },

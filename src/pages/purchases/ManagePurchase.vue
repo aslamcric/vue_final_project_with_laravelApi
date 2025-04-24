@@ -18,7 +18,7 @@
 
           <!-- Add Purchase button -->
           <RouterLink to="/purchases/create" class="btn btn-dark">
-            Create New Purchase
+            New Purchase
           </RouterLink>
         </div>
 
@@ -64,13 +64,13 @@
                     <i class="fas fa-eye"></i>
                   </RouterLink>
 
-                  <RouterLink :to="`/purchases/edit/${purchase.id}`" class="btn btn-sm btn-success me-2">
+                  <!-- <RouterLink :to="`/purchases/edit/${purchase.id}`" class="btn btn-sm btn-success me-2">
                     <i class="fas fa-edit"></i>
                   </RouterLink>
 
                   <button class="btn btn-sm btn-danger" @click="deletePurchase(purchase.id)">
                     <i class="fas fa-trash-alt"></i>
-                  </button>
+                  </button> -->
                 </td>
               </tr>
             </tbody>

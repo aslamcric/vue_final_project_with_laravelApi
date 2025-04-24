@@ -101,19 +101,19 @@
                                 <!-- Totals -->
                                 <tfoot>
                                     <tr>
-                                        <td colspan="5" class="text-end">Sub Total</td>
+                                        <td colspan="7" class="text-end">Sub Total</td>
                                         <td>{{ dataObj.subtotal }}</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" class="text-end">Tax (5%)</td>
+                                        <td colspan="7" class="text-end">Tax (5%)</td>
                                         <td>{{ dataObj.tax }}</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" class="text-end">Discount</td>
+                                        <td colspan="7" class="text-end">Discount</td>
                                         <td>{{ dataObj.totalDiscount }}</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" class="text-end fw-bold">Grand Total</td>
+                                        <td colspan="7" class="text-end fw-bold">Grand Total</td>
                                         <td class="fw-bold">{{ dataObj.grandTotal }}</td>
                                     </tr>
                                 </tfoot>
